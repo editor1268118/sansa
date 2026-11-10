@@ -1,0 +1,156 @@
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./dermaNav.css";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+
+function DermaNav() {
+  const [showMenu, setShowMenu] = useState(false);
+  const [scrollToSection, setScrollToSection] = useState(null); // State to manage section to scroll to
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavLinkClick = () => {
+    setShowMenu(false);
+  };
+
+  const toggleMenu = () => {
+    setShowMenu((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const toggle = document.getElementById("d_nav-toggle");
+    toggle.addEventListener("click", toggleMenu);
+
+    return () => {
+      toggle.removeEventListener("click", toggleMenu);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollToSection) {
+      // Delay scrolling to ensure the navigation has completed
+      setTimeout(() => {
+        const section = document.getElementById(scrollToSection);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+          setScrollToSection(null); // Reset the scroll target after scrolling
+        }
+      }, 100); // Adjust the delay as needed
+    }
+  }, [location.pathname, scrollToSection]);
+
+  const handleSectionClick = (e, sectionId) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      setScrollToSection(sectionId); // Set the target section
+      // navigate("/"); // Navigate to the home page
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        setShowMenu(false);
+      }
+    }
+  };
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+  return (
+    <header className="d_header" id="header">
+      <nav className={"d_nav nav-container"}>
+        <div className="d_nav__data">
+          <a
+            href="/derma-laser"
+            style={{
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#2d2d2d",
+            }}
+          >
+            <img
+              src="./logo-removebg.jpg.png"
+              alt="Sansa hospital"
+              height={80}
+              width={80}
+            />
+            <b style={{ color: "#fff" }}>&nbsp; SANSA HOSPITAL</b>
+          </a>
+          <div className="d_nav-logo-wrapper"></div>
+          <div
+            className={`d_nav__toggle ${showMenu ? "show-icon" : ""}`}
+            id="d_nav-toggle"
+          >
+            <MenuIcon style={{ color: "#fff" }} className="d_nav__burger" />
+            <CloseIcon style={{ color: "#fff" }} className="d_nav__close" />
+          </div>
+        </div>
+
+        <div
+          className={`d_nav__menu ${showMenu ? "show-menu" : ""}`}
+          id="d_nav-menu"
+        >
+          <ul className="d_nav__list">
+            <li className="d_nav_menu_link">
+              <a
+                href="/"
+                onClick={(e) => handleSectionClick(e, "about-us-section")}
+              >
+                HOME
+              </a>
+            </li>
+
+            <li className="d_nav_menu_link">
+              <a
+                href="/"
+                onClick={(e) => handleSectionClick(e, "doctors-section")}
+              >
+                ABOUT
+              </a>
+            </li>
+            <li className="d_nav_menu_link">
+              <a
+                href="/"
+                onClick={(e) => handleSectionClick(e, "why-choose-us")}
+              >
+                WHY CHOOSE US
+              </a>
+            </li>
+
+            <li className="d_nav_menu_link">
+              <a
+                href="/"
+                onClick={(e) => handleSectionClick(e, "services-section")}
+              >
+                SERVICES
+              </a>
+            </li>
+            <li className="d_nav_menu_link">
+              <a href="/" onClick={(e) => handleSectionClick(e, "faq-section")}>
+                FAQ
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div className="d_nav-separator" id="d_nav-separator"></div>
+    </header>
+  );
+}
+
+export default DermaNav;

@@ -1,0 +1,517 @@
+.hero_section{
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    max-height: 800px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%), url("https://res.cloudinary.com/dxx3h1fdt/image/upload/v1704974286/MicrosoftTeams-image_qqutnn.jpg");
+    display:flex;
+    justify-content: center;
+    background-size: cover;
+    align-items: center;
+}
+.h_content_wrapper{
+    // border:1px solid black;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin-top:88px;
+}
+.hero_text_container{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #f7f7f7;
+    font-weight: bold;
+    padding: 1em;
+}
+.hero_text{
+    font-size: 58px;
+    font-family: 'League Spartan', sans-serif !important;
+    line-height: 1.1;
+    margin: 0;
+    text-shadow: 2px 2px 4px black;
+
+}
+.hero_desc{
+    font-size: 22px;
+    color: ghostwhite;
+    font-weight: 400;
+}
+.h_form_container{
+    width: min-content;
+    // height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.form{
+    border-radius: 0.5em;
+    width: fit-content;
+    height: fit-content;
+    padding: 1em 2em;
+    margin: auto;
+    // background-color: #f6f9f9;
+}
+.f_line{
+     border-bottom: 2px solid rgb(226, 226, 226);
+    width: 90px;
+    margin: auto;
+    margin-bottom: 1.5em;
+}
+.h_line{
+    border-bottom: 4px solid #3fbbc0;
+    border-radius:2px ;
+    width: 200px;
+    margin-bottom: 1    em;
+    margin: auto;
+    margin-top: 1.5em;
+}
+.form_label{
+    font-weight: 500;
+}
+.form_input{
+    width: 300px;
+    height: 44px;
+    border:none;
+    border-bottom: 1px solid #000;
+    background-color: transparent;
+    padding:0px 10px;
+    margin-bottom: 14px;
+    margin-top: 6px;
+    border-radius: 0px;
+}
+.primaryButton{
+    background-color: #3fbbc0;
+    color: #ffffff;
+    padding: 0px 32px;
+    border: none;
+    border-radius: 5px;
+    min-height: 52px;
+    font-weight: bold;
+    font-size: 14px;
+    width: fit-content;
+    transition: background-color 0.3s;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    cursor: pointer;
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6; 
+}
+.primaryButton:hover{
+    background-color: gray;
+}
+
+.CTA_section{
+    width: 85%;
+    max-width: 1280px;
+    margin:auto;
+    margin-top: 4em;
+    border-radius: 0.5em;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%), url("../../compressed/adilabad1280.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.CTA_text_section{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 70%;
+    margin: 2.5em;
+}
+.CTA_header{
+    font-size: 38px;
+    font-family: 'League Spartan', sans-serif !important;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+.CTA_desc{
+    font-size: 18px;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+.info_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:4em;
+    width: 90%;
+    max-width: 1160px;
+    margin: auto;
+    margin-top: 4em;
+}
+.info_img_section{
+    width: 50%;
+
+}
+.info_img_section > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; 
+}
+.info_text_section{
+    width: 50%;
+    padding: 1em;
+}
+.info_desc_wrapper > p{
+    line-height: 1.3;
+    font-family:"Helvetica";
+    font-size:18px;
+    color: #575757;
+}
+
+.info_desc_wrapper > h2 {
+    text-align: start ;
+    font-size: 36px;
+    color: #3fbbc0;
+    font-family: 'League Spartan', sans-serif !important;
+    margin: 0;
+}
+.info_point_card{
+    display: flex;
+    gap: 20px;
+    margin-top: 1em;
+}
+.point_logo_wrapper{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.point_info_wrapper > h4 {
+    font-size: 18px;
+    margin: 0;
+}
+.point_info_wrapper > p {
+    font-size: 16px;
+    color: #5e5e5e;
+}
+
+.point_logo_wrapper > svg {
+    height: 60px;
+    width: 60px;
+}
+
+.numbers_container{
+    display: flex;
+    justify-content: space-between;
+    padding:4em 2em;
+    background-color: #3fbbc0;
+    margin-top: 4em;
+    flex-wrap: wrap;
+}
+.numbers_card{
+    background-color: #fff;
+    width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 180px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0 10px;
+    // flex-wrap: wrap;
+}
+.numbers_card >h2{
+    font-size: 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.numbers_card > p {
+    margin: 0;
+    font-size: 20px;
+}
+.icon_wrapper{
+    background: #3fbbc0;
+    padding: 10px 12px;
+    border-radius: 50%;
+}
+.services_section{
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+.services_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  gap: 2em;
+}
+.services_card {
+  min-width: 330px;
+  max-width: 31.33%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.services_card  > img {
+  border-radius: 50%;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 20px;
+}
+.services_text_wrapper{
+    max-width: 380px;
+}
+.services_text_wrapper > h4 {
+    font-size: 22px;
+    color: #1b1b1b;
+    margin-bottom: 20px;
+}
+.services_text_wrapper > p {
+    color: #5e5e5e;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.services_section > h2 {
+  text-align: center;
+  color: #3fbbc0;
+  font-weight: bold;
+  font-family: "League Spartan", sans-serif;
+  font-size: 48px;
+  margin-bottom: 0;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.reviews_section{
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.24) 0%,
+      rgba(0, 0, 0, 0.24) 100%
+    ),
+    url("../../compressed/NB02222_compressed.jpg");
+  padding: 2em 0em;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.reviews_heading{
+    text-align: center;
+    font-size: 44px;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    @media (max-width:480px) {
+        font-size: 32px;
+    }
+}
+.empty_section{
+    color: #fff;
+  text-align: center;
+  min-width: 350px;
+  max-width: 600px;
+  padding: 1.5em;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  @media (max-width:980px) {
+     min-width: 0px;
+     width: 70%;
+  }
+}
+.whatsapp_section{
+    background-color: #3fbbc0;
+    // width: 240px;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px 10px;
+    display: flex;
+    // gap:10px;
+    align-items: center;
+    margin-top:12px;
+}
+.w_icon_wrapper{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.w_icon_wrapper > img {
+    width: 100%;
+    height: 100%;
+}
+.w_text_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+
+}
+.w_text_wrapper > strong{
+    color: #fff;
+}
+
+
+.stickyBtn{
+    position: fixed;
+    bottom: 20px; 
+    right: 20px;
+    border: none ;
+    background-color: transparent;
+}
+
+.marquee_section{
+    height: 240px;
+    margin-top: 3em;
+    z-index: 0 !important;
+}
+.sliding_container{
+    display: flex;
+    gap: 1em;
+}
+.sliding_card{
+    width: 300px;
+    height: 180px;
+    border-radius:4px;
+    border: 1px solid ;
+    display: flex;
+    gap:10px;
+}
+.sliding_profile_wrapper{
+    width: 80px;
+    border: 1px solid ;
+}
+@media (max-width:480px) {
+    .hero_section{
+        background-position-x: -300px;
+        min-height: fit-content !important;
+        height: fit-content !important;
+        max-height: fit-content !important;
+        padding-bottom: 7em;
+    }
+    .h_content_wrapper{
+        flex-direction: column;
+    }
+    .CTA_section{
+        margin-top: 4em !important;
+    }
+.form{
+    width: 100% !important;
+    margin-top: 1em;
+}
+    .hero_text_container{
+        width: 100%;
+    }
+    .h_form_container{
+        width: 100%;
+        // margin: auto;
+    }
+    .form_input{
+        width: 90%;
+        margin-left: 0;
+
+    }
+    .hero_text{
+        margin-top: 1.5em;
+    }
+    .CTA_section{
+        width: 90%;
+        margin: auto;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%), url("../../compressed/adilabad.jpg");
+
+    }
+    .CTA_text_section{
+        width: 100%;
+        margin: 2em 1em;
+    }
+    .CTA_header{
+        font-size: 30px;
+    }
+    .numbers_container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+  }
+  .numbers_card {
+    width: 300px !important;
+  }
+}
+
+@media (max-width:980px) {
+    .hero_section{
+        max-height: fit-content;
+        padding-bottom: 7em;
+    }
+    .hero_text{
+        font-size: 44px;
+    }
+
+    .h_content_wrapper{
+        flex-direction: column;
+    }
+    .hero_text_container{
+        width: 100%;
+        padding: 0;
+       }
+       .form{
+        margin-top: 1em;
+       }
+    .CTA_section{
+        margin-top: 4em !important;
+    }
+    .CTA_text_section{
+        width: 100%;
+    }
+    .info_section{
+        flex-direction: column;
+        gap:2em;
+    }
+    .info_img_section{
+        width: 90%;
+    }
+    .info_text_section{
+        margin: auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .info_points_wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .info_desc_wrapper > h2 {
+        text-align: center
+    };
+    .numbers_container{
+        gap: 1em;
+    }
+    .numbers_card{
+        width: 40%;
+    }
+    
+}

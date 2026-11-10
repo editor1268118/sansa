@@ -1,0 +1,43 @@
+import { SitemapStream, streamToPromise } from "sitemap";
+import { createWriteStream } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, resolve } from "path";
+
+// Get the current directory path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const sitemap = new SitemapStream({
+  hostname: "https://www.sansahospital.com",
+});
+
+// Add URLs to the sitemap
+const urls = [
+  { url: "/", changefreq: "daily", priority: 1.0 },
+  { url: "/contact", changefreq: "weekly", priority: 0.8 },
+  { url: "/Book-An-Appointment", changefreq: "weekly", priority: 0.8 },
+  { url: "/about/hospital", changefreq: "monthly", priority: 0.7 },
+  { url: "/about/doctors", changefreq: "monthly", priority: 0.7 },
+  { url: "/Gastroenterology", changefreq: "monthly", priority: 0.7 },
+  { url: "/Hepatology", changefreq: "monthly", priority: 0.7 },
+  { url: "/Cosmetic-Dermatology", changefreq: "monthly", priority: 0.7 },
+  { url: "/Trichology", changefreq: "monthly", priority: 0.7 },
+  { url: "/gallery", changefreq: "monthly", priority: 0.6 },
+  { url: "/thank-you", changefreq: "yearly", priority: 0.5 },
+];
+
+// Write each URL to the sitemap
+urls.forEach((url) => sitemap.write(url));
+
+sitemap.end();
+
+// Write sitemap to public directory
+streamToPromise(sitemap)
+  .then((data) => {
+    createWriteStream(resolve(__dirname, "public/sitemap.xml")).write(
+      data.toString()
+    );
+  })
+  .catch((err) => {
+    console.error(err);
+  });

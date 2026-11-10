@@ -1,0 +1,4 @@
+User-agent: *
+allow:
+disallow: https://sansahospital.com/derma-laser
+Sitemap: https://www.sansahospital.com/sitemap.xml

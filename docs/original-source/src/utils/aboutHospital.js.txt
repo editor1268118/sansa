@@ -1,0 +1,26 @@
+import img1 from "../compressed/compressed_svision.jpg";
+import img2 from "../compressed/compressed_smission.jpg";
+import img3 from "../compressed/compressed_svalues.jpg";
+
+const aboutHospital = [
+  {
+    image: img1,
+    title: "Our Vision",
+    description:
+      "To Contribute Greater and Meticulous services to our clients with utmost kindness and unwavering loyalty. As we go beyond the horizon to establish ourselves as the leading, caring and most compassionate providers.",
+  },
+  {
+    image: img2,
+    title: "Our Mission",
+    description:
+      "To bring world class Health care services to each and everyone. To make sure our beloved patients are in the hands of safest, secure, and trained Doctors. To bring a precious smile to the faces of our Patients and to always be a paragon of hope and health.",
+  },
+  {
+    image: img3,
+    title: "Our Values",
+    description:
+      "We at SANSA are completely aligned with the spiritual values of Humanity. We uphold the dignity of Our Professional Moral Code. We ensure the rightful passage and protection of sacred medical treatment to our beloved patients.",
+  },
+];
+
+export default aboutHospital;

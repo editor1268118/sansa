@@ -1,0 +1,32 @@
+import { useEffect } from "react";
+
+import styles from "./card.module.scss";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const Card = ({ image, title, description }) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+  return (
+    <div
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+      className={styles.card}
+    >
+      <div className={styles.cardImageContainer}>
+        {image && <img src={image} alt={title} className={styles.cardImage} />}
+      </div>
+      <div className={styles.cardContent}>
+        <h2 className={styles.cardTitle}>{title}</h2>
+        <p className={styles.cardDescription}>{description}</p>
+      </div>
+    </div>
+  );
+};
+
+export default Card;

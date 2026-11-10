@@ -1,0 +1,179 @@
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+import styles from "./bookAppointment.module.scss";
+import Separator from "../../components/Separator/Separator";
+
+const BookAppointment = () => {
+  useEffect(() => {
+    document.title = "Book Your Appointment at Sansa Hospital, Adilabad";
+
+    const preferredDateInput = document.getElementById("preferredDate");
+    if (preferredDateInput) {
+      preferredDateInput.min = new Date().toISOString().split("T")[0];
+
+      flatpickr(preferredDateInput, {
+        dateFormat: "d-m-Y",
+        minDate: "today",
+      });
+
+      const placeholderText = "Preferred Date:";
+      if (preferredDateInput.type !== "date") {
+        preferredDateInput.addEventListener("focus", () => {
+          if (preferredDateInput.value === "") {
+            preferredDateInput.classList.remove(styles.customPlaceholder);
+            preferredDateInput.value = placeholderText;
+          }
+        });
+
+        preferredDateInput.addEventListener("blur", () => {
+          if (preferredDateInput.value === placeholderText) {
+            preferredDateInput.classList.add(styles.customPlaceholder);
+            preferredDateInput.value = "";
+          }
+        });
+
+        if (preferredDateInput.value === "") {
+          preferredDateInput.classList.add(styles.customPlaceholder);
+          preferredDateInput.value = placeholderText;
+        }
+      }
+    }
+  }, []);
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+
+  useEffect(() => {
+    document.title = "Book Your Appointment at Sansa Hospital, Adilabad";
+  }, []);
+  return (
+    <div id="ilauwg" className={styles.ilauwg}>
+      <div className={styles.formContainer}>
+        <div className={styles.formIContainer}></div>
+        <div className={styles.formFContainer}>
+          <h1 className={styles.heading}>Book an appointment</h1>
+          <Separator />
+          <form
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            className={styles.form}
+            action="https://formsubmit.co/info@sansahospital.com"
+            method="POST"
+          >
+            <div className={styles.inputGroup}>
+              <div className={styles.inputGroupRow}>
+                <input
+                  type="text"
+                  name="First Name"
+                  placeholder="First Name"
+                  required
+                  className={styles.input}
+                />
+                <input
+                  type="text"
+                  name="Last Name"
+                  placeholder="Last Name"
+                  required
+                  className={styles.input}
+                />
+              </div>
+              <div className={styles.inputGroupRow}>
+                <input
+                  type="text"
+                  name="Mobile"
+                  placeholder="Mobile"
+                  required
+                  inputMode="tel"
+                  pattern="[0-9]*"
+                  className={styles.input}
+                />
+                <input
+                  type="email"
+                  name="Email"
+                  placeholder="Email"
+                  required
+                  className={styles.input}
+                />
+              </div>
+              <div className={styles.inputGroupRow}>
+                <select
+                  id="gender"
+                  name="Gender"
+                  required
+                  className={`${styles.input} ${styles.gender}`}
+                  defaultValue=""
+                  style={{ width: "auto", height: "42px", color: "grey" }}
+                >
+                  <option value="" disabled hidden>
+                    Select your gender:
+                  </option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Others">Others</option>
+                </select>
+                <select
+                  name="Department"
+                  id="department"
+                  className={styles.input}
+                  required
+                  defaultValue="none"
+                  style={{ width: "auto", height: "42px", color: "grey" }}
+                >
+                  <option value="none" disabled>
+                    Select your department:
+                  </option>
+                  <option value="Gastroenterology">Gastroenterology</option>
+                  <option value="Dermatology">Dermatology</option>
+                </select>
+              </div>
+              <div className={styles.inputGroupRow}>
+                <label className={styles.mobileLabel}>Preferred Date:</label>
+                <input
+                  type="date"
+                  id="preferredDate"
+                  min=""
+                  required
+                  name="Preferred Date"
+                  className={`${styles.input} ${styles.customPlaceholder}`}
+                  style={{ width: "auto", height: "auto" }}
+                />
+                <label className={styles.mobileLabel}>Preferred Time:</label>
+                <select
+                  className={styles.input}
+                  id="time"
+                  required
+                  name="Preferred Time"
+                  defaultValue=""
+                  style={{ width: "auto", height: "42px", color: "grey" }}
+                >
+                  <option value="" disabled>
+                    Preferred Time:
+                  </option>
+                  <option value="Morning">Morning</option>
+                  <option value="Evening">Evening</option>
+                </select>
+              </div>
+            </div>
+            <div className={styles.btnContainer}>
+              <button type="submit" className={styles.submit_btn}>
+                SUBMIT
+              </button>
+            </div>
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="/thank-you" />
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BookAppointment;

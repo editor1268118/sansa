@@ -1,0 +1,177 @@
+import React, { useState } from "react";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
+import styles from "./contact.module.scss";
+import PlaceIcon from "@mui/icons-material/Place";
+import CallIcon from "@mui/icons-material/Call";
+import MailIcon from "@mui/icons-material/Mail";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import whatsappIcon from "../../compressed/wsvg.svg";
+
+function Contact() {
+  const [isFormVisible, setFormVisible] = useState(false);
+
+  const showForm = () => setFormVisible(true);
+  const hideForm = (e) => {
+    e.preventDefault();
+    setFormVisible(false);
+  };
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+
+  useEffect(() => {
+    document.title = "Connect with Sansa Hospital Adilabad: Contact Us";
+  }, []);
+  return (
+    <div style={{ marginTop: "88px" }}>
+      <div className={styles.contact_section}>
+        <div className={styles.contact_info_section}>
+          {!isFormVisible && (
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              className={styles.contact_details_wrapper}
+            >
+              <h1 className={styles.contact_heading}>Contact Us</h1>
+              <div className={styles.separator}></div>
+              <div className={styles.c_wrapper}>
+                <PlaceIcon />
+                <p>
+                  <a href="https://maps.app.goo.gl/kbPUgc1mp4Q9KD2z5">
+                   Plot No. 5,6 & Part of 7, Survey No. 20/B, <br /> Behind Royal Enfield Showroom, Dasnapur,
+                  <br /> Adilabad - 504001
+                  </a>
+                </p>
+              </div>
+              <div className={styles.c_wrapper}>
+                <CallIcon />
+                <p>
+                  <a href="tel:919182348994">+91 9182348994</a>
+                </p>
+              </div>
+              <div className={styles.c_wrapper}>
+                <MailIcon />
+                <p>
+                  <a href="mailto:info@sansahospital.com">
+                    info@sansahospital.com
+                  </a>
+                </p>
+              </div>
+              <div>
+                <div className={styles.c_wrapper}>
+                  <AccessTimeFilledIcon />
+                  <p>SANSA hours :</p>
+                </div>
+
+                <div className={styles.timings_wrapper}>
+                  <p>
+                    Gastroenterology: 09:00 AM - 02:00 PM <br /> & 04:00 PM -
+                    07:30 PM
+                  </p>
+                  <p>
+                    Dermatology: 11:00 AM - 02:00 PM <br /> & 05:00 PM - 07:30
+                    PM
+                  </p>
+                  <b>SUNDAY Closed</b>
+                </div>
+              </div>
+              <button className={styles.drop_btn} onClick={showForm}>
+                DROP US A LINE
+              </button>
+            </div>
+          )}
+
+          {isFormVisible && (
+            <div data-aos="fade-up" className={styles.contact_form_wrapper}>
+              <form
+                action="https://formsubmit.co/info@sansahospital.com"
+                method="POST"
+              >
+                <p className={styles.form_heading}>Drop us a line!</p>
+                <input
+                  className={styles.input}
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Name"
+                />
+                <br />
+                <input
+                  className={styles.input}
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  required=""
+                />
+                <br />
+                <select
+                  id="department"
+                  name="department"
+                  className={styles.input}
+                  style={{ width: "96%" }}
+                >
+                  <option value="" disabled="" selected="" hidden="">
+                    Choose Department...
+                  </option>
+                  <option value="Gastroenterology">Gastroenterology</option>
+                  <option value="Dermatology">Dermatology</option>
+                </select>
+                <br />
+                <textarea
+                  id="subject"
+                  name="message"
+                  placeholder="Message"
+                  className={styles.input}
+                ></textarea>
+                <br />
+                <div className={styles.btn_container}>
+                  <button
+                    id="cancel"
+                    onClick={hideForm}
+                    className={styles.cancel_btn}
+                  >
+                    Cancel
+                  </button>
+                  <button className={styles.save_btn}>Submit</button>
+                </div>
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+              </form>
+            </div>
+          )}
+        </div>
+        <div className={styles.map_section}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15027.732339437709!2d78.531108!3d19.67286!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd25de67a14a9ff%3A0x3b52d885ba99fb01!2sSANSA%20Gastro%2C%20Liver%20and%20Skin%20Hospital%20Endoscopy%20%26%20Cosmetology%20Centre!5e0!3m2!1sen!2sin!4v1718942835607!5m2!1sen!2sin"
+            width={"100%"}
+            height={"100%"}
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </div>
+      <a className={styles.stickyBtn} href="whatsapp://send?phone=919182348994">
+        <div className={styles.whatsapp_section}>
+          <div className={styles.w_icon_wrapper}>
+            <img src={whatsappIcon} alt="whatsapp" />
+          </div>
+          <div className={styles.w_text_wrapper}>
+            <strong>Message us on Whatsapp</strong>
+          </div>
+        </div>
+      </a>
+    </div>
+  );
+}
+
+export default Contact;

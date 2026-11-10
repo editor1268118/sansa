@@ -1,0 +1,49 @@
+{
+  "name": "sansa_hospital",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node generate-sitemap.js && vite build && node scripts/prerender-meta.mjs",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "generate-sitemap": "node generate-sitemap.js"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.20",
+    "@mui/material": "^5.15.20",
+    "@mui/x-tree-view": "^7.7.0",
+    "animate.css": "^4.1.1",
+    "antd": "^5.18.3",
+    "aos": "^2.3.4",
+    "axios": "^1.7.2",
+    "flatpickr": "^4.6.13",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.3.1",
+    "react-fast-marquee": "^1.6.4",
+    "react-google-recaptcha": "^3.1.0",
+    "react-icons": "^5.2.1",
+    "react-intersection-observer": "^9.10.3",
+    "react-router-dom": "^6.23.1",
+    "rsuite": "^5.67.0",
+    "sitemap": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "postcss": "^8.4.38",
+    "sass": "^1.77.5",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.0"
+  }
+}

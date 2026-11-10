@@ -1,0 +1,631 @@
+import { useState, useEffect, useRef } from "react";
+import Marquee from "react-fast-marquee";
+import { useInView } from "react-intersection-observer";
+import animateCount from "../../utils/animateCount";
+import styles from "./home.module.scss";
+import PrimaryButton from "../../components/Button/Button";
+import ShareLocationIcon from "@mui/icons-material/ShareLocation";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import Diversity1Icon from "@mui/icons-material/Diversity1";
+import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import doctorsImg from "../../compressed/compressed_doctors.jpg";
+import staffImg from "../../compressed/compressed_staff.JPG";
+import patientCareImg from "../../compressed/compressed_patientcare1.jpg";
+import pharmacyImg from "../../compressed/compressed_NB02271.jpg";
+import Separator from "../../components/Separator/Separator";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { baseServerUrl } from "../../constant";
+import {
+  FaHospitalUser,
+  FaUserDoctor,
+  FaCommentMedical,
+} from "react-icons/fa6";
+import { ImLab } from "react-icons/im";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import ReCAPTCHA from "../../components/ConfiguredRecaptcha";
+
+// Mui imports
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+// mui imports end
+
+const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
+const infoPointsData = [
+  {
+    icon: "ShareLocationIcon",
+    title: "Deeply Rooted In Adilabad",
+    description:
+      "Our doctors don't just work here; they are an integral part of the community.",
+  },
+  {
+    icon: "HealthAndSafetyIcon",
+    title: "Personalized Patient Care",
+    description:
+      "We believe in treating our patients like family, with personalized attention and care.",
+  },
+  {
+    icon: "Diversity1Icon",
+    title: "Holistic Approach",
+    description:
+      "Emphasizing the importance of treating the whole person, not just the symptoms.",
+  },
+  {
+    icon: "MedicalServicesIcon",
+    title: "Commitment to Excellence",
+    description:
+      "Continuously updating our skills and knowledge to provide the best possible care.",
+  },
+];
+
+const iconComponents = {
+  ShareLocationIcon: ShareLocationIcon,
+  HealthAndSafetyIcon: HealthAndSafetyIcon,
+  Diversity1Icon: Diversity1Icon,
+  MedicalServicesIcon: MedicalServicesIcon,
+};
+
+const iconMap = {
+  FaHospitalUser: FaHospitalUser,
+  FaUserDoctor: FaUserDoctor,
+  FaCommentMedical: FaCommentMedical,
+  ImLab: ImLab,
+};
+
+const numbersData = [
+  {
+    icon: "FaHospitalUser",
+    size: 40,
+    color: "#fff",
+    count: 3,
+    description: "Hospital's Journey",
+  },
+  {
+    icon: "FaUserDoctor",
+    size: 40,
+    color: "#fff",
+    count: 8,
+    description: "Years of Experience",
+  },
+  {
+    icon: "FaCommentMedical",
+    size: 40,
+    color: "#fff",
+    count: 8000,
+    description: "Satisfied Patients",
+  },
+  {
+    icon: "ImLab",
+    size: 40,
+    color: "#fff",
+    count: 6000,
+    description: "Successes: Gastro-Derma Mastery",
+  },
+];
+
+function CountUp({ end }) {
+  const [count, setCount] = useState(0);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      animateCount(0, end, 5000, setCount);
+    }
+  }, [inView, end]);
+
+  return <h2 ref={ref}>{count}+</h2>;
+}
+function Home() {
+  const servicesRef = useRef(null);
+
+  const handleViewServicesClick = () => {
+    servicesRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+
+  useEffect(() => {
+    document.title =
+      "SANSA | Best Gastro, Liver, Skin, hair Hospitals in Adilabad";
+  }, []);
+
+  const [appointmentData, setAppointmentData] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+    department: "",
+  });
+  const [timer, setTimer] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const navigate = useNavigate();
+
+  const handleInput = (event) => {
+    setAppointmentData({
+      ...appointmentData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleRecaptchaChange = (token) => {
+    console.log("Recaptcha token generated");
+    if (!token) {
+      alert("reCAPTCHA failed. Please try again.");
+      setRecaptchaToken("");
+      return;
+    }
+    console.log("recaptcha token", token);
+    setRecaptchaToken(token);
+  };
+
+  const submitHandler = async (e) => {
+    let errors = [];
+    // Mobile validation
+    if (appointmentData.mobile.length !== 10) {
+      alert("Mobile number must be exactly 10 digits");
+      return;
+    }
+
+    // Email validation
+    if (!appointmentData.email.endsWith("@gmail.com")) {
+      alert("Email must end with @gmail.com");
+      return;
+    }
+    // Department validation
+    if (!appointmentData.department) {
+      alert("Please select a department");
+      return;
+    }
+    if (errors.length > 0) {
+      alert(errors.join("\n"));
+      return;
+    }
+
+    e.preventDefault();
+    if (!recaptchaToken) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        `${baseServerUrl}api/send-email`,
+        { ...appointmentData, recaptchaToken },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status == 200) {
+        setLoading(false);
+        setState({ ...state, right: false }); // Close the drawer
+        navigate("/thank-you");
+        console.log("Response:", response.data);
+      } else {
+        setLoading(false);
+        alert("There was an error!");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error("There was an error!", error);
+    }
+  };
+
+  // mui drawer code
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+  useEffect(() => {
+    setState({ right: true });
+  }, []);
+  const list = (anchor) => (
+    <Box
+      sx={{
+        top: isMobile ? "0rem" : "2rem",
+        width: isMobile ? "100vw" : "380px",
+        height: isMobile ? "100%" : "auto",
+        paddingY: isMobile ? "0px" : "0px",
+        overflowY: "hidden",
+        overflowX: "hidden", // Hide horizontal scrollbar
+      }}
+      role="presentation"
+      onClick={(event) => event.stopPropagation()} // Prevent closing on input click
+      onKeyDown={(event) => event.stopPropagation()} // Prevent closing on input keydown
+    >
+      <div className={styles.h_form_container}>
+        <form onSubmit={submitHandler} className={styles.form} id="form">
+          <h2 style={{ textAlign: "center", color: "#3fbbc0" }}>
+            Book an Appointment
+          </h2>
+          <div className={styles.f_line}></div>
+          <div className={styles.form_group}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your Name"
+              required
+              onChange={handleInput}
+              className={styles.form_input}
+            />
+            {/* <input
+              type="text"
+              name="mobile"
+              placeholder="Enter your Mobile"
+              required
+              inputMode="tel"
+              maxLength="10"
+              pattern="[0-9]*"
+              onChange={handleInput}
+              className={styles.form_input}
+              value={appointmentData.mobile}
+            /> */}
+            <input
+              type="number"
+              name="mobile"
+              placeholder="Enter your Mobile"
+              required
+              maxLength={10}
+              inputMode="numeric"
+              onInput={(e) => e.target.value = e.target.value.slice(0, 10)}
+              onChange={handleInput}
+              className={styles.form_input}
+              value={appointmentData.mobile}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              onChange={handleInput}
+              className={styles.form_input}
+              value={appointmentData.email}
+            />
+
+            <select
+              name="department"
+              id="department"
+              className={styles.form_input}
+              onChange={handleInput}
+              required
+              value={appointmentData.department}
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Select Department
+              </option>
+              <option value="gastroenterology">Gastroenterology</option>
+              <option value="dermatology">Dermatology</option>
+            </select>
+            <ReCAPTCHA sitekey={siteKey} onChange={handleRecaptchaChange} />
+            <br />
+            <button
+              disabled={loading || !siteKey}
+              type="submit"
+              className={styles.primaryButton}
+            >
+              {loading ? "Reserving Your Slot..." : "Submit"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </Box>
+  );
+  // mui drawer code end
+
+  return (
+    <div>
+      <div className={styles.hero_section}>
+        <div className={styles.h_content_wrapper}>
+          <div
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+            className={styles.hero_text_container}
+          >
+            <h1 className={`${styles.hero_text} animate__fadeInDown`}>
+              &quot;A Revolution in Health care : Choose SANSA for a committed
+              and Compassionate Health Service&quot;
+            </h1>
+            {/* <div className={styles.h_line}></div> */}
+            <button
+              style={{ margin: "auto", marginTop: "2em" }}
+              className={styles.primaryButton}
+              onClick={toggleDrawer("right", true)}
+            >
+              Book an Appointment
+            </button>
+          </div>
+          {/* <div className={styles.h_form_container}>
+            <form
+              onSubmit={submitHandler}
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="1000"
+              className={styles.form}
+              id="form"
+            >
+              <h2 style={{ textAlign: "center", color: "#3fbbc0" }}>
+                Book an Appointment
+              </h2>
+              <div className={styles.f_line}></div>
+              <div className={styles.form_group}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your Name"
+                  required
+                  onChange={handleInput}
+                  className={styles.form_input}
+                />
+                <input
+                  type="text"
+                  name="mobile"
+                  placeholder="Enter your Mobile"
+                  required
+                  inputMode="tel"
+                  pattern="[0-9]*"
+                  onChange={handleInput}
+                  className={styles.form_input}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  onChange={handleInput}
+                  className={styles.form_input}
+                />
+                <select
+                  name="department"
+                  id="department"
+                  className={styles.form_input}
+                >
+                  <option value="" disabled>
+                    Select Department
+                  </option>
+                  <option value="gastroenterology">Gastroenterology</option>
+                  <option value="dermatology">Dermatology</option>
+                </select>
+                <ReCAPTCHA sitekey={siteKey} onChange={handleRecaptchaChange} />
+                <br />
+                <button
+                  disabled={loading}
+                  type="submit"
+                  className={styles.primaryButton}
+                >
+                  {loading ? "Reserving Your Slot..." : "Submit"}
+                </button>
+              </div>
+            </form>
+          </div> */}
+        </div>
+      </div>
+
+      <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+        className={styles.CTA_section}
+      >
+        <div className={styles.CTA_text_section}>
+          <h2 className={styles.CTA_header}>Adilabad Advances in Healthcare</h2>
+          <p className={styles.CTA_desc}>
+            In the short span of its existence, SANSA Hospital has created its
+            niche on the map of quality healthcare delivery in Adilabad by
+            introducing Premier Gastroenterology and Innovative Laser
+            Dermatology. Having earned the trust and loyalty of patients through
+            the compassion of its caregivers and high-precision medical
+            technology, the institution has emerged as the leading care facility
+            in the town.
+          </p>
+          <button
+            onClick={handleViewServicesClick}
+            className={styles.primaryButton}
+          >
+            SEE OUR SERVICES
+          </button>
+        </div>
+      </div>
+
+      <div className={styles.info_section}>
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          className={styles.info_img_section}
+        >
+          <img
+            src={doctorsImg}
+            alt="Sansa Gastro, Liver and Skin Hospital Adilabad Hospital Gastroenterologists and Dermatologist doctors"
+          />
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          className={styles.info_text_section}
+        >
+          <div className={styles.info_desc_wrapper}>
+            <h2>Why Our Doctors Stand Out</h2>
+          </div>
+
+          <div className={styles.info_points_wrapper}>
+            {infoPointsData.map((point, index) => {
+              const IconComponent = iconComponents[point.icon];
+              return (
+                <div key={index} className={styles.info_point_card}>
+                  <div className={styles.point_logo_wrapper}>
+                    <IconComponent style={{ color: "#3fbbc0" }} />
+                  </div>
+                  <div className={styles.point_info_wrapper}>
+                    <h4>{point.title}</h4>
+                    <p>{point.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.numbers_container}>
+        {numbersData.map((item, index) => {
+          const IconComponent = iconMap[item.icon];
+          return (
+            <div key={index} className={styles.numbers_card}>
+              <div data-aos="zoom-in" className={styles.icon_wrapper}>
+                <IconComponent size={item.size} color={item.color} />
+              </div>
+              <CountUp end={item.count} />
+              <p>{item.description}</p>
+            </div>
+          );
+        })}
+      </div>
+
+      <div ref={servicesRef} id="services" className={styles.services_section}>
+        <h2>Our Services</h2>
+        <Separator />
+        <div className={styles.services_container}>
+          <div className={styles.services_card}>
+            <img
+              data-aos="zoom-in"
+              src={staffImg}
+              alt="Sansa Gastro, Liver and Skin Hospital Adilabad Hospital Staff and Co-doctors"
+            />
+            <div className={styles.services_text_wrapper}>
+              <h4>Expert medical staff</h4>
+              <p>
+                Our team of doctors, nurses, and specialists are experts in
+                their fields, with years of experience and a passion for
+                providing exceptional care. We work together to create
+                personalized treatment plans that address each patient's unique
+                needs and requirements.
+              </p>
+            </div>
+          </div>
+          <div className={styles.services_card}>
+            <img
+              data-aos="zoom-in"
+              src={patientCareImg}
+              alt="patient-centred-care"
+            />
+            <div className={styles.services_text_wrapper}>
+              <h4>Patient-centred care</h4>
+              <p>
+                We understand that every patient is unique, which is why we
+                prioritize individualized care and open communication with our
+                patients and their families. We strive to create a warm and
+                welcoming environment that fosters healing and promotes overall
+                wellness.
+              </p>
+            </div>
+          </div>
+          <div className={styles.services_card}>
+            <img
+              data-aos="zoom-in"
+              src={pharmacyImg}
+              alt="Sansa Gastro, Liver and Skin Hospital Adilabad Medical shop."
+            />
+            <div className={styles.services_text_wrapper}>
+              <h4>Worry-Free Pharmacy</h4>
+              <p>
+                For the benefit of our patients and to reduce their struggles in
+                finding exceptional medicine we have established our pharmacy at
+                the premises of our Very own SANSA hospital. At affordable rates
+                along with friendly staff & no compromise in quality.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.btnContainer}>
+          <PrimaryButton label={"VIEW MORE"} link={"/about/hospital"} />
+        </div>
+      </div>
+
+      <div className={styles.reviews_section}>
+        <div>
+          <h2 className={styles.reviews_heading}>What Our Patients Say</h2>
+          <div
+            className={styles.empty_section}
+            style={{ backgroundColor: "rgba(22, 22, 22, 0.5)" }}
+          >
+            Reviews coming soon!
+          </div>
+        </div>
+      </div>
+      <div>
+        {["right"].map((anchor) => (
+          <React.Fragment key={anchor}>
+            {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+              sx={{
+                "& .MuiDrawer-paper": {
+                  top: isMobile ? "0rem" : "auto",
+                  bottom: isMobile ? "auto" : "60px",
+                  width: isMobile ? "100vw" : "380px",
+                  height: isMobile ? "auto" : "550px",
+                  paddingY: isMobile ? "0px" : "0px",
+                  overflowY: "hidden",
+                  overflowX: "hidden", // Hide horizontal scrollbar
+                },
+              }}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        ))}
+      </div>
+      {/* sticky btn */}
+      <button
+        className={styles.stickyBtn}
+        onClick={toggleDrawer("right", true)}
+      >
+        <div className={styles.whatsapp_section}>
+          <div className={styles.w_icon_wrapper}>
+            <CalendarMonthIcon style={{ color: "#fff" }} />
+          </div>
+          <div className={styles.w_text_wrapper}></div>
+        </div>
+      </button>
+    </div>
+  );
+}
+
+export default Home;

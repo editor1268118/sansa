@@ -1,0 +1,14 @@
+import ReCAPTCHA from "react-google-recaptcha";
+
+export default function ConfiguredRecaptcha({ sitekey, ...props }) {
+  if (!sitekey) {
+    return (
+      <p role="status">
+        Online booking is currently unavailable. Please contact the hospital to
+        book an appointment.
+      </p>
+    );
+  }
+
+  return <ReCAPTCHA sitekey={sitekey} {...props} />;
+}

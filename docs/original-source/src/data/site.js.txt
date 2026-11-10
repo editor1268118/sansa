@@ -1,0 +1,32 @@
+import original from './original-content.json';
+import optimized from './media.json';
+
+const assets = import.meta.glob('/src/compressed/*', { eager: true, query: '?url', import: 'default' });
+export function imageUrl(source) { return optimized[source]?.src || assets[source] || source?.replace('/public/', '/'); }
+export function imageSize(source) { return optimized[source] || {}; }
+export const hospital = {
+  name: 'SANSA Hospital', phone: '+91 9182348994', tel: '+919182348994', email: 'info@sansahospital.com',
+  address: 'Plot No. 5,6 & Part of 7, Survey No. 20/B, Behind Royal Enfield Showroom, Dasnapur, Adilabad - 504001',
+  directions: 'https://maps.app.goo.gl/kbPUgc1mp4Q9KD2z5',
+  map: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15027.732339437709!2d78.531108!3d19.67286!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd25de67a14a9ff%3A0x3b52d885ba99fb01!2sSANSA%20Gastro%2C%20Liver%20and%20Skin%20Hospital%20Endoscopy%20%26%20Cosmetology%20Centre!5e0!3m2!1sen!2sin!4v1718942835607!5m2!1sen!2sin',
+  intro: 'SANSA Hospital brings gastroenterology, liver, skin and hair care together in Adilabad. Our doctors combine specialist knowledge with a personal approach to the people and community we serve.',
+  facebook: 'https://www.facebook.com/SansaGastroandSkinHospitalAdilabad/', instagram: 'https://www.instagram.com/sansa_hospital?igsh=MWpleGhqdnYwcGE3OA==',
+};
+export const specialties = [
+  { key: 'gastro', name: 'Gastroenterology', path: '/Gastroenterology', label: 'Digestive health', summary: 'Specialist care for your digestive system, with endoscopy and colonoscopy services.', headline: 'Thoughtful care for your digestive health.', doctor: 0, image: '/src/compressed/compressed_endo.jpg' },
+  { key: 'liver', name: 'Hepatology', path: '/Hepatology', label: 'Liver health', summary: 'Focused liver care, from fatty liver and hepatitis to non-invasive FibroScan screening.', headline: 'Specialist attention. Better liver care.', doctor: 0, image: '/src/compressed/compressed_hepatology.jpg' },
+  { key: 'skin', name: 'Dermatology', path: '/Cosmetic-Dermatology', label: 'Skin & cosmetic care', summary: 'Individual care for your skin, with dermatology consultations and laser treatments.', headline: 'Expertise that understands your skin.', doctor: 1, image: '/src/compressed/compressed_cosmo_derma.jpg' },
+  { key: 'hair', name: 'Trichology', path: '/Trichology', label: 'Hair & scalp health', summary: 'A specialist approach to hair loss, patterned baldness and scalp concerns.', headline: 'Care that gets to the root of your concerns.', doctor: 1, image: '/src/compressed/compressed_hairtreatment.jpg' },
+].map(s => ({ ...s, ...original[s.key] }));
+export const laser = { name: 'Derma Laser', path: '/derma-laser', label: 'Laser & cosmetic dermatology' };
+export const doctors = original.doctors.doctors.map((d,i)=>({...d, specialty:i===0?'Gastroenterology & Hepatology':'Dermatology & Cosmetology'}));
+export const laserFaqs = original.faqs.questionsAndAnswers;
+export const gallery = original.gallery.map((src,index)=>({src,alt:`SANSA Hospital photograph ${index+1}`}));
+export const testimonials = [
+  { name: 'Srikar Srikar', quote: 'I had a very positive experience at your hospital. The staff were kind and professional, and the facilities were clean and well-maintained. Thank you for the excellent care!' },
+  { name: 'Almala Supriya', quote: 'Dr. Sarita is an exceptional dermatologist. Her expertise is evident in accurate diagnoses, and she explains treatments thoroughly. Personable and punctual, creating a positive patient experience. Highly recommended.' },
+  { name: 'Krishna', quote: 'Sansa Hospital delivers unmatched skin care with a team of knowledgeable and friendly professionals. From the spotless facilities to the personalized attention, the entire experience was seamless. I wholeheartedly recommend their dermatology services for outstanding care.' },
+  { name: 'Sathya Gajengi', quote: 'I have seen good results after my skin treatment. I strongly recommend this hospital.' },
+];
+export const carePoints = original.home.infoPointsData;
+export const appointmentPath = '/Book-An-Appointment';

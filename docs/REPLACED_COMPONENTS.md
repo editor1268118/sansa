@@ -1,0 +1,41 @@
+# Replaced legacy modules
+
+These unreferenced modules/styles were superseded by the shared design system. Every file is preserved in docs/original-source with a .txt extension. No media was removed.
+
+- src\App.css
+- src\components\Button\Button.jsx
+- src\components\Button\button.module.scss
+- src\components\Card\Card.jsx
+- src\components\Card\card.module.scss
+- src\components\ConfiguredRecaptcha.jsx
+- src\components\Departments\Departments.jsx
+- src\components\Departments\Departments.module.scss
+- src\components\DermaFaq\DermaFaq.jsx
+- src\components\DermaFaq\dermaFaq.module.scss
+- src\components\DermaNav\dermaNav.css
+- src\components\DermaNav\DermaNav.jsx
+- src\components\FlipCards\FlipCards.jsx
+- src\components\FlipCards\flipCards.module.scss
+- src\components\Footer\footer.module.scss
+- src\components\Navbar\Navbar.css
+- src\components\Navbar\navbar.module.scss
+- src\components\Separator\Separator.jsx
+- src\components\Separator\separator.module.scss
+- src\pages\Book Appointment\bookAppointment.module.scss
+- src\pages\Contact\contact.module.scss
+- src\pages\DermaLP\dermaLp.module.scss
+- src\pages\Dermatology\Dermatology.module.scss
+- src\pages\Gallery\gallery.module.scss
+- src\pages\Gastroenterology\Gastroenterology.module.scss
+- src\pages\Hepatology\Hepatology.module.scss
+- src\pages\Home\home.module.scss
+- src\pages\Our Doctors\ourDoctors.module.scss
+- src\pages\Privacy Policy\privacyPolicy.module.scss
+- src\pages\Thank you\thankYou.module.scss
+- src\pages\The Hospital\theHospital.module.scss
+- src\pages\Trichology\Trichology.module.scss
+- src\utils\aboutHospital.js
+- src\utils\animateCount.js
+- src\utils\features.js
+- src\utils\hospitalCardContent.js
+- src\utils\scrollToTop.js

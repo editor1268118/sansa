@@ -1,0 +1,32 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { metaConfig } from "./metaConfig";
+
+const updateMetaTags = (title, description) => {
+  document.title = title;
+
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) {
+    metaDescription.setAttribute("content", description);
+  } else {
+    const meta = document.createElement("meta");
+    meta.name = "description";
+    meta.content = description;
+    document.head.appendChild(meta);
+  }
+};
+
+const usePageMeta = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const { pathname } = location;
+    const meta = metaConfig[pathname] || metaConfig["/"];
+
+    if (meta) {
+      updateMetaTags(meta.title, meta.description);
+    }
+  }, [location]);
+};
+
+export default usePageMeta;

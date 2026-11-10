@@ -1,0 +1,333 @@
+import * as React from "react";
+import { useState, useEffect } from "react";
+import "./Navbar.css";
+import { Link, useLocation } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+
+function Navbar() {
+  const [showMenu, setShowMenu] = useState(false);
+  const [showAboutDropdown, setShowAboutDropdown] = useState(false);
+  const [showDepartmentsDropdown, setShowDepartmentsDropdown] = useState(false);
+  const [showDermatologyDropdown, setShowDermatologyDropdown] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const location = useLocation();
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    // setScrollPosition(0);
+    window.scrollTo(0, 0);
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 1024); // Adjust this value according to your desktop breakpoint
+    };
+
+    // Initial check on mount
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.scrollY;
+      setScrollPosition(position);
+    };
+
+    if (location.pathname === "/") {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [location.pathname]);
+
+  const navbarClass =
+    location.pathname === "/" && scrollPosition === 0
+      ? "navbar-transparent"
+      : "navbar-black";
+
+  const navLine =
+    location.pathname === "/" && scrollPosition === 0
+      ? "navbar-transparent nav_line"
+      : "navbar-black";
+
+  const handleDropdownToggle = (dropdownSetter) => {
+    if (isDesktop) {
+      let timeoutId;
+
+      const handleMouseEnter = () => {
+        clearTimeout(timeoutId);
+        dropdownSetter(true);
+      };
+
+      const handleMouseLeave = () => {
+        timeoutId = setTimeout(() => {
+          dropdownSetter(false);
+        }, 300); // Adjust the delay as needed (e.g., 300ms)
+      };
+
+      return {
+        onMouseEnter: handleMouseEnter,
+        onMouseLeave: handleMouseLeave,
+      };
+    } else {
+      return {
+        onClick: (e) => {
+          e.stopPropagation();
+          dropdownSetter((prev) => !prev);
+        },
+      };
+    }
+  };
+
+  const handleNavLinkClick = () => {
+    setShowMenu(false);
+    setShowAboutDropdown(false);
+    setShowDepartmentsDropdown(false);
+    setShowDermatologyDropdown(false);
+  };
+
+  const handleHomeClick = () => {
+    setShowMenu(false);
+    setShowAboutDropdown(false);
+    setShowDepartmentsDropdown(false);
+    setShowDermatologyDropdown(false);
+  };
+
+  const toggleMenu = () => {
+    setShowMenu((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const toggle = document.getElementById("nav-toggle");
+    toggle.addEventListener("click", toggleMenu);
+
+    return () => {
+      toggle.removeEventListener("click", toggleMenu);
+    };
+  }, []);
+
+  const isActiveLink = (path) => location.pathname === path;
+  const isActiveDepartment = () =>
+    [
+      "/Gastroenterology",
+      "/Hepatology",
+      "/Cosmetic-Dermatology",
+      "/Trichology",
+    ].includes(location.pathname);
+  const isActiveAbout = () =>
+    ["/about/hospital", "/about/doctors"].includes(location.pathname);
+
+  return (
+    <header className={`header ${navbarClass}`} id="header">
+      <nav className={`nav nav-container${navLine}`}>
+        <div className="nav__data">
+          <img
+            src="/logo-removebg.jpg.png"
+            height="50"
+            width="50"
+            alt="SANSA GASTRO, LIVER AND SKIN HOSPITAL Endoscopy & Cosmetology Centre"
+          />
+          <div className="nav-logo-wrapper">
+            <a href="/" onClick={handleHomeClick}>
+              SANSA
+            </a>
+            <a>Hospital</a>
+          </div>
+          <div
+            className={`nav__toggle ${showMenu ? "show-icon" : ""}`}
+            id="nav-toggle"
+          >
+            {/* <MenuIcon style={{ color: "#fff" }} className="nav__burger" /> */}
+            <img
+              src="./open.svg"
+              alt="menu open"
+              className="nav__burger"
+              width={35}
+              height={35}
+            />
+            <img
+              src="./close.svg"
+              alt="menu open"
+              className="nav__close"
+              width={35}
+              height={35}
+            />
+            {/* <CloseIcon style={{ color: "#fff" }} className="nav__close" /> */}
+          </div>
+        </div>
+
+        <div
+          className={`nav__menu ${showMenu ? "show-menu" : ""}`}
+          id="nav-menu"
+        >
+          <ul className="nav__list">
+            <li className="nav_menu_link">
+              <Link
+                to="/"
+                className={isActiveLink("/") ? "nav__link--active" : ""}
+                onClick={handleNavLinkClick}
+              >
+                HOME
+              </Link>
+            </li>
+            <li
+              className={`nav_menu_link nav__item--dropdown ${
+                showAboutDropdown ? "active" : ""
+              }`}
+              {...handleDropdownToggle(setShowAboutDropdown)}
+            >
+              <div
+                className={`nav_menu_link_text ${
+                  isActiveAbout() ? "nav__link--active" : ""
+                }`}
+              >
+                <span>ABOUT</span>
+                {showAboutDropdown ? (
+                  <ExpandLessIcon fontSize="small" />
+                ) : (
+                  <ExpandMoreIcon fontSize="small" />
+                )}
+              </div>
+              <ul
+                className={`dropdown-menu ${
+                  showAboutDropdown ? "show-dropdown" : ""
+                }`}
+                style={{ marginTop: "10px" }}
+              >
+                <li>
+                  <Link
+                    to="/about/hospital"
+                    className={
+                      isActiveLink("/about/hospital") ? "nav__link--active" : ""
+                    }
+                    onClick={handleNavLinkClick}
+                  >
+                    The Hospital
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about/doctors"
+                    className={
+                      isActiveLink("/about/doctors") ? "nav__link--active" : ""
+                    }
+                    onClick={handleNavLinkClick}
+                  >
+                    Our Doctors
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li
+              className={`nav_menu_link nav__item--dropdown ${
+                showDepartmentsDropdown ? "active" : ""
+              }`}
+              {...handleDropdownToggle(setShowDepartmentsDropdown)}
+            >
+              <div
+                className={`nav_menu_link_text ${
+                  isActiveDepartment() ? "nav__link--active" : ""
+                }`}
+              >
+                <span>DEPARTMENTS</span>
+                {showDepartmentsDropdown ? (
+                  <ExpandLessIcon fontSize="small" />
+                ) : (
+                  <ExpandMoreIcon fontSize="small" />
+                )}
+              </div>
+              <ul
+                className={`dropdown-menu ${
+                  showDepartmentsDropdown ? "show-dropdown" : ""
+                }`}
+                style={{ marginTop: "10px" }}
+              >
+                <li>
+                  <Link to="/Gastroenterology" onClick={handleNavLinkClick}>
+                    Gastroenterology
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/Hepatology" onClick={handleNavLinkClick}>
+                    Hepatology
+                  </Link>
+                </li>
+                <li
+                  className={`nav_menu_link nav__item--dropdown ${
+                    showDermatologyDropdown ? "active" : ""
+                  }`}
+                  {...handleDropdownToggle(setShowDermatologyDropdown)}
+                  style={{ marginTop: "0px" }}
+                >
+                  <div className="nav_menu_link_text">
+                    <span style={{ display: "flex", alignItems: "center" }}>
+                      Dermatology <ExpandMoreIcon fontSize="small" />
+                    </span>
+                  </div>
+                  <ul
+                    className={`nested-dropdown dropdown-menu ${
+                      showDermatologyDropdown ? "show-dropdown" : ""
+                    }`}
+                    style={{ marginTop: "10px" }}
+                  >
+                    <li>
+                      <Link
+                        to="/Cosmetic-Dermatology"
+                        onClick={handleNavLinkClick}
+                      >
+                        Cosmetic Dermatology
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Trichology" onClick={handleNavLinkClick}>
+                        Trichology
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li className="nav_menu_link">
+              <Link
+                to="/contact"
+                className={isActiveLink("/contact") ? "nav__link--active" : ""}
+                onClick={handleNavLinkClick}
+              >
+                CONTACT
+              </Link>
+            </li>
+            <li className="nav_menu_link">
+              <Link
+                to="/gallery"
+                className={isActiveLink("/gallery") ? "nav__link--active" : ""}
+                onClick={handleNavLinkClick}
+              >
+                GALLERY
+              </Link>
+            </li>
+            <li className="nav_menu_link">
+              <Link
+                to="/"
+                className={isActiveLink("/") ? "nav__link--active" : ""}
+                onClick={handleNavLinkClick}
+              >
+                BOOK AN APPOINTMENT
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div className="nav-separator" id="nav-separator"></div>
+    </header>
+  );
+}
+
+export default Navbar;

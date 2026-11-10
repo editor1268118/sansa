@@ -1,0 +1,176 @@
+.ilauwg {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    margin-top: 88px;
+    background: #f6f6f6;
+    background-size: cover;
+  }
+  
+  .heading {
+    text-align: center;
+    color: #3fbbc0;
+    font-weight: bold;
+  }
+  .docImg {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .form {
+    margin: auto;
+    width: 600px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 2em;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .inputGroupRow {
+    display: flex;
+    gap: 1em;
+  }
+  
+  .input {
+    height: 42px;
+    flex: 1;
+    border: 1px solid rgb(218, 218, 218);
+    padding-left: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-appearance: none; /* Reset Safari default appearance if necessary */
+  appearance: none;
+  }
+  
+  .customPlaceholder {
+    color: gray;
+  }
+  
+  .btnContainer {
+    text-align: center;
+  }
+  
+  .submit_btn {
+    background-color: #3fbbc0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+  }
+  
+  .submit_btn:hover {
+    background-color: gray;
+  }
+
+ 
+  
+  .formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 4em;
+  }
+  
+  .formIContainer {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://img.freepik.com/free-photo/healthcare-workers-preventing-virus-quarantine-campaign-concept-smiling-friendly-female-doctor-nurse-scrubs-writing-dorn-results-analysis-clipboard-standing-white-background_1258-84302.jpg?t=st=1709717514~exp=1709721114~hmac=8f6e2be…&w=1380");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -10em;
+  }
+  
+
+  
+  .formFContainer {
+    flex: 1;
+    // max-width: 600px;
+  }
+  
+  
+  .primaryButton {
+    font-family: Helvetica, "Open Sans", sans-serif;
+    background-color: #3fbbc0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primaryButton:hover {
+    background-color: #3498db;
+  }
+  .mobileLabel{
+    display: none;
+    font-size: 14px;
+  }
+  @media (max-width: 768px) {
+    .mobileLabel{
+      display: block;
+    }
+    .heading{
+      padding-top:0px ;
+    }
+    .formContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .formIContainer {
+      height: 200px;
+      background-position-y: 0;
+      width: 100%;
+    }
+  
+    .formFContainer {
+      width: 90%;
+    }
+  
+    .form {
+      width: 100%;
+      max-width: 400px;
+      padding: 1em;
+    }
+  
+    .inputGroupRow {
+      flex-direction: column;
+      gap: 0.5em;
+    }
+  
+    .form {
+      width: 80%;
+    }
+    .input {
+      width: auto;
+      margin: 0;
+      padding: 10px 10px;
+    }
+  
+    .btnContainer {
+      width: 100%;
+    }
+  
+    .primaryButton {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  

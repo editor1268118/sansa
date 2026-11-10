@@ -1,0 +1,90 @@
+import { useEffect } from "react";
+import img1 from "../../compressed/b4 1.jpg";
+import img2 from "../../compressed/trichology_compressed.jpg";
+import img3 from "../../compressed/compressed_hairtreatment.jpg";
+import img4 from "../../compressed/compressed_NB08861.jpg";
+import img5 from "../../compressed/baldness.jpg";
+import Departments from "../../components/Departments/Departments";
+import styles from "./Trichology.module.scss";
+import Card from "../../components/Card/Card";
+import Separator from "../../components/Separator/Separator";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { Link } from "react-router-dom";
+
+const Trichology = () => {
+  const info = {
+    image1: img1,
+    image2: img2,
+    heading: "Trichology",
+    text: "Departments / ​Dermatology / Trichology",
+    description:
+      "It is a medical branch dedicated to diagnosing and treating the problems associated with Hair and Scalp. Trichology professionals deal with the numerous conditions of the hair and scalp either to cure or control the disease. Specialists of Trichology have committed themselves to accurately study and produce solutions for your hair. Some of the fundamental issues that are dealt with in Trichology are Hair loss, patterned baldness, scalp and hair infections.",
+  };
+
+  const cards = [
+    {
+      image: img3,
+      title: "HAIR LOSS TREATMENT",
+      description:
+        "Hormonal changes, Hereditary, Aging , Stress, Illness causes us to lose our hair rapidly as we experience our life. Losing hair causes severe emotional damage to many people. But many Medical advancements have generated to treat Hair loss effectively.",
+    },
+    {
+      image: img4,
+      title: "PRP TREATMENT",
+      description:
+        "Platelet rich plasma is a process where the patient’s plasma is drawn from the body and injected into the scalp. The rich growth factors of the patient’s plasma advance the strength of the cells in the scalp and offers more increase in the hair.",
+    },
+    {
+      image: img5,
+      title: "PATTERNED BALDNESS",
+      description:
+        "Male and Female patterned baldness is quite common in both genders. For men it usually starts when they reach thirty. For women it starts after menopause. PRP treatment, Red light therapy, Hair Transplant are commonly used for both males and females who experience patterned baldness.",
+    },
+  ];
+
+  useEffect(() => {
+    document.title = "Sansa Hospital Adilabad: Top Trichology and hair clinic.";
+  }, []);
+  return (
+    <div>
+      <div>
+        <Departments
+          image1={info.image1}
+          image2={info.image2}
+          heading={info.heading}
+          text={info.text}
+          description={info.description}
+        />
+      </div>
+      <div className={styles.container}>
+        <h1 className={styles.primaryH}>
+          Experience advanced Treatments for hair with our trichology experts.
+        </h1>
+        <Separator />
+        <div className={styles.cardContainer}>
+          {cards.map((gastroCard, index) => (
+            <Card
+              key={index}
+              image={gastroCard.image}
+              title={gastroCard.title}
+              description={gastroCard.description}
+            />
+          ))}
+        </div>
+      </div>
+      {/* sticky btn */}
+      <Link className={styles.stickyBtn} to="/#form">
+        <div className={styles.whatsapp_section}>
+          <div className={styles.w_icon_wrapper}>
+            <CalendarMonthIcon style={{ color: "#fff" }} />
+          </div>
+          <div className={styles.w_text_wrapper}>
+            {/* <strong>Book an Appointment</strong> */}
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
+export default Trichology;

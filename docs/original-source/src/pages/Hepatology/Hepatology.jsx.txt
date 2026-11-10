@@ -1,0 +1,157 @@
+import { useEffect } from "react";
+import img1 from "../../compressed/b4 1.jpg";
+import img2 from "../../compressed/compressed_hepatology.jpg";
+import img3 from "../../compressed/alcohol-and-liver.jpg";
+import img4 from "../../compressed/compressed_NAFL.jpg";
+import img5 from "../../compressed/compressed_nash.jpg";
+import img6 from "../../compressed/viral-hepatology_compressed.jpg";
+import img7 from "../../compressed/compressed_dili.jpg";
+import img8 from "../../compressed/compressed_fibroscan.jpg";
+import Departments from "../../components/Departments/Departments";
+import styles from "./Hepatology.module.scss";
+import Card from "../../components/Card/Card";
+import freeTag from "../../compressed/free.png";
+import PrimaryButton from "../../components/Button/Button";
+import fibroPopupImg from "../../compressed/hepatologyPopup-min.png";
+import { useState } from "react";
+import { Button, Modal } from "antd";
+import Separator from "../../components/Separator/Separator";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { Link } from "react-router-dom";
+
+const Hepatology = () => {
+  const info = {
+    image1: img1,
+    image2: img2,
+    heading: "Hepatology",
+    text: "Departments / Hepatology",
+    description:
+      "A Branch of Medicine that is solely responsible for treating any kind of problematic issues that occur in your Liver. A Sub-Specialty of gastroenterology, Hepatology has been growing in rapid speed to meet the demands of Patients and Clients who are dealing with many complications related to Liver. Many patients have experienced problems with liver which at large level went undiagnosed, but we at SANSA Hospital are dedicated to treat every issue regarding your Liver.",
+  };
+
+  const cards = [
+    {
+      image: img3,
+      title: "ALCOHOL LIVER DISEASE",
+      description:
+        "Alcohol related Liver disease refers to the damage caused by the excessive intake of alcohol to liver, this covers a wide spectrum disease that include Fatty liver disease, Alcoholic Hepatitis, Cirrhosis. Factors such as Environmental, Genetic, Immunology play a key role in Alcohol liver disease. At SANSA Hospital we have trained professionals who deal with any variation of Alcohol Liver Disease.",
+    },
+    {
+      image: img4,
+      title: "NAFLD",
+      description:
+        "Non-Alcoholic Fatty liver Disease(NAFLD) is a condition that occurs when excess fat builds up in the liver. This fat is not generated due to excessive alcohol consumption. NAFLD does not cause major liver damage but causes pain from the enlargement of the liver. Being overweight, Type 2 diabetes, High Blood pressure can cause NAFLD , due to this Fatigue and pain in upper right abdomen are faced by the patient. Complete medical, physical, and supportive care can be employed to treat NAFLD.",
+    },
+    {
+      image: img5,
+      title: "NASH",
+      description:
+        "Non-Alcoholic steatohepatitis(NASH) is a form of NAFLD in which you will be experiencing inflammation of the liver. It makes liver swell and causes damage due to the fat deposits present in your liver. Symptoms of NASH include shortness of breath, Itchy skin, swelling of legs. NASH is mostly seen in people over 50 years with certain Genetic risk factors. Eating healthy diet ,keeping weight under control and regular Checkups from doctors will decrease the risk of NASH on your liver.",
+    },
+    {
+      image: img6,
+      title: "VIRAL HEPATOLOGY (a,b,c,d,e)",
+      description:
+        "Hepatitis indicates inflammation in your liver. As a vital organ of the body, the liver process nutrients, fights infections and filters the blood. Heavy consumption of Alcohol , Toxins and some medical conditions may cause Hepatitis. Most common types of hepatitis are Hepatitis A, Hepatitis B , Hepatitis C, Hepatitis D. Treatments for Viral Hepatitis broadly includes Supportive Care , Intravenous Rehydration and Pharmacologic Therapy.",
+    },
+    {
+      image: img7,
+      title: "DILI TREATMENT",
+      description:
+        "Drug Induced liver injury(DILI) is an adverse toxic drug reaction resulting in liver injury. DILI is the most common cause of Acute liver Failure(ALF). Environmental and Drug related factors play a key role in pathogenies of DILI. The diagnosis for DILI can be made according to the pattern of patient’s liver injury. Other possible ways to manage DILI include corticosteroids and ursodeoxycholic acid.",
+    },
+    {
+      image: img8,
+      title: "FIBRO SCAN (Liver Scan)",
+      description:
+        "It is a simple but effective way to examine your Liver through screening process. Ultrasound is used carefully and non-invasively to scan your liver to check for any fibrosis or fattiness. Cirrhosis, Obesity, Alcoholic liver Diseases can be easily found in their early stage through fibro scan and can be treated appropriately based on the scanning. Fibro scan is painless, easy, and quick.",
+    },
+  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    document.title =
+      "Hepatology and Liver specialists at Sansa Hospital Adilabad";
+  }, []);
+  return (
+    <div>
+      <div>
+        <Departments
+          image1={info.image1}
+          image2={info.image2}
+          heading={info.heading}
+          text={info.text}
+          description={info.description}
+          style={{ backgroundPositionY: "1px" }}
+        />
+      </div>
+      <div className={styles.container}>
+        <h1 className={styles.primaryH}>
+          Advanced treatments from Best Liver Specialists and Hepatology
+          Experts.
+        </h1>
+        <Separator />
+        <div className={styles.cardContainer}>
+          {cards.map((gastroCard, index) => (
+            <Card
+              key={index}
+              image={gastroCard.image}
+              title={gastroCard.title}
+              description={gastroCard.description}
+            />
+          ))}
+        </div>
+      </div>
+      <div data-aos="fade-up" className={styles.free_fibro_section}>
+        <img src={freeTag} alt="Free fibro scan" />
+
+        <div className={styles.f_text_wrapper}>
+          <h2>Free Fibro scan</h2>
+          <p>On the third Monday of every month</p>
+        </div>
+        <div className={styles.f_btn_wrapper}>
+          <PrimaryButton label={"CONTACT US"} link={"/contact"} />
+          <button className={styles.knowMoreBtn} onClick={showModal}>
+            KNOW MORE
+          </button>
+        </div>
+      </div>
+
+      <Modal
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={null}
+        style={{ display: "flex" }}
+      >
+        <img
+          className={styles.fibroPopupImg}
+          src={fibroPopupImg}
+          alt="Free Fibro scan"
+        />
+      </Modal>
+      {/* sticky btn */}
+      <Link className={styles.stickyBtn} to="/#form">
+        <div className={styles.whatsapp_section}>
+          <div className={styles.w_icon_wrapper}>
+            <CalendarMonthIcon style={{ color: "#fff" }} />
+          </div>
+          <div className={styles.w_text_wrapper}>
+            {/* <strong>Book an Appointment</strong> */}
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
+export default Hepatology;

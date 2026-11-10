@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sansa Hospital</title>
+
+    <!-- favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#ffffff" />
+
+
+    <!-- re captcha  -->
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- hero img preload -->
+
+    <link
+      rel="preload"
+      href="https://res.cloudinary.com/dxx3h1fdt/image/upload/v1704974286/MicrosoftTeams-image_qqutnn.jpg"
+      as="image"
+    />
+
+    <!-- font family -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- SEO Section -->
+    <meta name="robot" content=" SANSA Gastro and Skin Hospital Adilabad " />
+    <meta
+      name="copyright"
+      content=" SANSA Gastro and Skin Hospital Adilabad "
+    />
+    <meta name="author" content=" SANSA Gastro and Skin Hospital Adilabad " />
+    <meta
+      property="og:locale"
+      content=" SANSA Gastro and Skin Hospital Adilabad "
+    />
+    <meta
+      property="og:type"
+      content=" SANSA Gastro and Skin Hospital Adilabad "
+    />
+
+    <meta
+      property="og:title"
+      content=" SANSA | Best Gastro, Liver, Skin, hair Hospitals in Adilabad "
+    />
+    <meta
+      property="og:description"
+      content=" Sansa Hospitals is the first gastrology hospital in Adilabad and offers Endoscopy & Cosmetology and treatments for all gastro, liver, skin care, hair problems. "
+    />
+    <meta property="og:url" content="https:www.sansahospital.com" />
+    <meta property="og:site_name" content="SANSA Hospital Adilabad" />
+    <meta property="og:image" content=" SANSA Hospital Adilabad " />
+    <meta property="fb:admins" content=" SANSA Hospitals Adilabad " />
+
+    <meta name="facebook:card" 
+        content=" SANSA Gastro and Skin Hospital Adilabad " /> 
+    <meta name="facebook:site" 
+        content=" https://www.facebook.com/SansaGastroandSkinHospitalAdilabad " /> 
+    <meta name="facebook:creator" 
+        content=" SANSA Gastro and Skin Hospital Adilabad " /> 
+    <meta name="Facebook:title" 
+        content=" SANSA | Best Gastro, Liver, Skin, hair Hospitals in Adilabad " /> 
+    <meta name="Facebook:description" 
+        content="Sansa Hospitals is the first gastroenterology hospital in Adilabad and offers Endoscopy & Cosmetology and treatments for all gastro, liver, skin care, hair problems." /> 
+    <meta name="twitter:image:src" 
+        content="https://aighospitals.com/uploads/images/services/image/5.jpg" /> 
+  
+    <article itemscope itemtype=" SANSA Gastro and Skin Hospital Adilabad "> 
+    <meta itemprop="name" content=" SANSA Gastro and Skin Hospital Adilabad " /> 
+    <meta itemprop="description" 
+        content=" Sansa Hospitals is the first gastroenterology hospital in Adilabad and offers Endoscopy & Cosmetology and treatments for all gastro, liver, skin care, hair problems." /> 
+    <meta itemprop="url" content="https://www.sansahospital.com" /> 
+    <meta itemprop="image" content=" SANSA Gastro and Skin Hospital Adilabad " /> 
+    <meta itemprop="author" name=" SANSA Gastro and Skin Hospital Adilabad " /> 
+    <meta itemprop="organization" name=" SANSA Gastro and Skin Hospital Adilabad " /> 
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16486238727"></script>
+    <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'AW-16486238727'); </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHHJV6SPF7"></script>
+    <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-BHHJV6SPF7'); </script>
+
+    <!-- Event snippet for Page view conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-16486238727/fM1pCPWbgpoZEIeUoLU9'});
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '3889613317984622');
+      fbq('track', 'PageView');
+      </script>
+      <noscript><img height="1" width="1" style="display:none"
+      src="
+      https://www.facebook.com/tr?id=3889613317984622&ev=PageView&noscript=1"
+      /></noscript>
+
+      <!-- Microsoft Clarity Code -->
+      <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "qxpgytcjju");
+      </script>  
+
+      <!-- Schema -->
+      <script type="application/ld+json" class="reviews-schema" data-ref="36158f3b64b69c0983cfc75cfaaf40be1c9b46e6" async defer> {
+
+    "@context": "http://schema.org", 
+
+    "@type": "Product", 
+
+    "name": " SANSA | Best Gastro, Liver, Skin, hair Hospitals in Adilabad", 
+
+    "aggregateRating": 
+
+    { 
+
+        "@type": "AggregateRating", 
+
+        "ratingValue": "4.6", 
+
+        "reviewCount": "7774"
+
+    }
+
+    ,
+
+  "sameAs": [
+ 
+    "https://www.facebook.com/SansaGastroandSkinHospitalAdilabad", 
+
+    "https://www.instagram.com/sansa_hospital/", 
+
+    "https://www.sansahospital.com" 
+
+  ],
+
+  "contactPoint": [
+
+    {
+
+      "@type": "ContactPoint",
+
+      "telephone": "8309183592",
+
+      "contactType": "customer service",
+
+      "email": "info@sansahospital.com"
+
+    }
+
+  ]
+
+} </script>
+</head>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+import React, { useState } from "react";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import styles from "./dermaFaq.module.scss";
+
+const questionsAndAnswers = [
+  {
+    question: "1. What are the benefits of laser skin treatments?",
+    answer:
+      "Laser skin treatments offer numerous benefits, including improved skin tone and texture, reduction of wrinkles and fine lines, acne scar removal, hyperpigmentation treatment, and overall skin rejuvenation. They can also target specific skin concerns like age spots, sun damage, and vascular lesions with precision, resulting in smoother and more youthful-looking skin with minimal downtime.",
+  },
+  {
+    question: "2. Are laser skin treatments safe for all skin types?",
+    answer:
+      "Most laser skin treatments are safe for all skin types when performed by a qualified professional using the appropriate technology. However, certain lasers are better suited for specific skin tones. For darker skin types, advanced lasers like Nd.",
+  },
+  {
+    question: "3. How long do the results of cosmetic treatments last?",
+    answer:
+      "The longevity of results from cosmetic treatments varies depending on the type of procedure, individual skin type, and aftercare routine. For example, laser skin resurfacing can provide results that last for several months to years, while maintenance sessions may be required for treatments like laser hair removal or acne scar reduction. Proper skincare and sun protection can extend the results significantly.",
+  },
+  {
+    question: "4. What is the recovery time for non-surgical procedures?",
+    answer:
+      "Recovery time for non-surgical procedures is generally minimal, ranging from no downtime to a few days of mild redness, swelling, or peeling. Procedures like laser treatments, chemical peels, and injectables typically allow patients to resume normal activities almost immediately, although it's essential to follow aftercare instructions for optimal healing and results.",
+  },
+  {
+    question: "5. Are there any side effects of laser skin treatments?",
+    answer:
+      "Common side effects of laser skin treatments include temporary redness, swelling, mild discomfort, and slight skin sensitivity. More rarely, there can be side effects like hyperpigmentation, hypopigmentation, or scarring, especially if the wrong type of laser is used for a particular skin type. To minimize risks, treatments should be performed by experienced professionals in a reputable clinic.",
+  },
+  {
+    question: "6. How many sessions are required for optimal results?",
+    answer:
+      "The number of sessions required varies based on the treatment type and individual skin condition. Typically, laser treatments for skin rejuvenation or scar removal may require 3-6 sessions spaced a few weeks apart. For laser hair removal, 6-8 sessions are common, depending on hair thickness and growth cycle. A consultation with a specialist will provide a personalized treatment plan for optimal results.",
+  },
+  {
+    question:
+      "7. Can laser treatments be combined with other skincare procedures?",
+    answer:
+      "Yes, laser treatments can often be combined with other skincare procedures for enhanced results. Common combinations include laser treatments with chemical peels, microneedling, or injectable treatments like Botox and dermal fillers. Combining treatments can address multiple skin concerns simultaneously, resulting in a more comprehensive rejuvenation plan. A tailored consultation is essential to ensure the compatibility and safety of combined procedures.",
+  },
+  {
+    question:
+      "8. What should I expect during a consultation for cosmetic treatments?",
+    answer:
+      "During a consultation for cosmetic treatments, you can expect a thorough skin assessment, discussion of your skincare goals, and an explanation of the available treatment options. The specialist will review your medical history, evaluate your skin type, and recommend a customized treatment plan. You'll also have the opportunity to ask questions about the procedures, costs, expected outcomes, and any pre- or post-care instructions.",
+  },
+  {
+    question:
+      "9. How do I choose a reputable clinic for laser skin treatments?",
+    answer:
+      "Choosing a reputable clinic for laser skin treatments involves researching the clinic’s credentials, reading reviews, and verifying the experience and qualifications of the practitioners. Look for clinics that use advanced, FDA-approved laser technologies and prioritize patient safety. A good clinic will offer thorough consultations, transparent pricing, and detailed information about the treatments and expected results.",
+  },
+  {
+    question: "10. Are laser skin treatments suitable for sensitive skin?",
+    answer:
+      "Laser skin treatments can be suitable for sensitive skin, but the choice of laser and settings must be carefully customized. Some lasers, like fractional or low-energy lasers, are gentler and better suited for sensitive or reactive skin. It's crucial to consult with a specialist who can assess your skin type and recommend the safest, most effective treatment options tailored to your sensitivity concerns.",
+  },
+];
+
+export default function DermaFaq() {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (_, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  return (
+    <div
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+      data-aos-once="true"
+      className={styles.faq_container}
+    >
+      {questionsAndAnswers.map((faq, index) => (
+        <Accordion
+          key={index}
+          expanded={expanded === `panel${index}`}
+          onChange={handleChange(`panel${index}`)}
+          className={styles.faq_accordian}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls={`panel${index}-content`}
+            id={`panel${index}-header`}
+          >
+            <Typography className={styles.faq_title}>{faq.question}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography className={styles.faq_desc}>{faq.answer}</Typography>
+          </AccordionDetails>
+        </Accordion>
+      ))}
+    </div>
+  );
+}

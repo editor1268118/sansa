@@ -1,0 +1,126 @@
+import { useEffect } from "react";
+import styles from "./theHospital.module.scss";
+import Card from "../../components/Card/Card";
+import hospitalCardContent from "../../utils/hospitalCardContent";
+import aboutHospital from "../../utils/aboutHospital";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import visionImg from "../../compressed/compressed_svision.jpg";
+import missionImg from "../../compressed/compressed_smission.jpg";
+import valuesImg from "../../compressed/compressed_svalues.jpg";
+import Separator from "../../components/Separator/Separator";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { Link } from "react-router-dom";
+
+const TheHospital = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+
+  useEffect(() => {
+    document.title = "Sansa Hospitals: Premier Healthcare in Adilabad City";
+  }, []);
+  return (
+    <>
+      <div className={`${styles.fContainer} ${styles.heroContainer}`}>
+        <div className={styles.heroInfoContainer}>
+          <h2
+            data-aos="fade-right"
+            className={`${styles.primaryHeading} animate__animated animate__fadeInLeft`}
+          >
+            “Small Town, Big Heart, Exceptional Care.”
+          </h2>
+        </div>
+      </div>
+
+      <div className={styles.sectionBlockLayout}>
+        <div className={styles.container}>
+          <div className={styles.columnBlockLayout}>
+            <h1
+              data-aos="fade-down"
+              data-aos-anchor-placement="center-bottom"
+              data-aos-duration="1500"
+              className={styles.primaryHeading}
+            >
+              Get Excellence in Healthcare: Choose SANSA for Your Health Needs.
+            </h1>
+            <Separator />
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.cardContainer}>
+        {hospitalCardContent.map((content, index) => (
+          <Card
+            key={index}
+            image={content.image}
+            title={content.title}
+            description={content.description}
+          />
+        ))}
+      </div>
+      <div>
+        <div className={styles.services_section}>
+          <h2>About SANSA</h2>
+          <Separator />
+          <div className={styles.services_container}>
+            <div className={styles.services_card}>
+              <img data-aos="zoom-in" src={visionImg} alt="vision" />
+              <div className={styles.services_text_wrapper}>
+                <h4>Our Vision</h4>
+                <p>
+                  To Contribute Greater and Meticulous services to our clients
+                  with utmost kindness and unwavering loyalty. As we go beyond
+                  the horizon to establish ourselves as the leading, caring and
+                  most compassionate providers.
+                </p>
+              </div>
+            </div>
+            <div className={styles.services_card}>
+              <img data-aos="zoom-in" src={missionImg} alt="mission" />
+              <div className={styles.services_text_wrapper}>
+                <h4>Our Mission</h4>
+                <p>
+                  To bring world class Health care services to each and
+                  everyone. To make sure our beloved patients are in the hands
+                  of safest, secure, and trained Doctors. To bring a precious
+                  smile to the faces of our Patients and to always be a paragon
+                  of hope and health.
+                </p>
+              </div>
+            </div>
+            <div className={styles.services_card}>
+              <img data-aos="zoom-in" src={valuesImg} alt="Values" />
+              <div className={styles.services_text_wrapper}>
+                <h4>Our Values</h4>
+                <p>
+                  We at SANSA are completely aligned with the spiritual values
+                  of Humanity. We uphold the dignity of Our Professional Moral
+                  Code. We ensure the rightful passage and protection of sacred
+                  medical treatment to our beloved patients.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* sticky btn */}
+        <Link className={styles.stickyBtn} to="/#form">
+          <div className={styles.whatsapp_section}>
+            <div className={styles.w_icon_wrapper}>
+              <CalendarMonthIcon style={{ color: "#fff" }} />
+            </div>
+            <div className={styles.w_text_wrapper}>
+              {/* <strong>Book an Appointment</strong> */}
+            </div>
+          </div>
+        </Link>
+      </div>
+    </>
+  );
+};
+
+export default TheHospital;

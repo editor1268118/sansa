@@ -1,0 +1,56 @@
+export const metaConfig = {
+  "/": {
+    title: "SANSA | Best Gastro, Liver, Skin, hair Hospitals in Adilabad",
+    description:
+      "Sansa Hospitals is the first gastrology hospital in Adilabad and offers Endoscopy & Cosmetology and treatments for all gastro, liver, skin care, hair problems.",
+  },
+  "/contact": {
+    title: "Connect with Sansa Hospital Adilabad: Contact Us",
+    description:
+      "Reach out to Sansa Hospital in Adilabad for appointments, inquiries, or assistance. Our team is dedicated to addressing your needs promptly and professionally. Contact us today!",
+  },
+  "/Book-An-Appointment": {
+    title: "Book Your Appointment at Sansa Hospital, Adilabad",
+    description:
+      "Secure your consultation at Sansa Hospital in Adilabad hassle-free. Our efficient appointment booking system ensures you receive timely access to our expert medical services. Start your journey towards wellness today.",
+  },
+  "/about/hospital": {
+    title: "Sansa Hospitals: Premier Healthcare in Adilabad City",
+    description:
+      "Discover premier medical care at Sansa Hospitals in Adilabad. Your trusted partner for comprehensive healthcare solutions.",
+  },
+  "/about/doctors": {
+    title: "Adilabad's Top Gastro & Skin Doctors - Sansa Hospital",
+    description:
+      "Meet Adilabad's leading gastro and dermatology experts. Quality care at Sansa Hospital for all your gastro, liver, skin care, hair problems. ",
+  },
+  "/Gastroenterology": {
+    title: "Sansa Hospital Adilabad: Premier Gastroenterology Services",
+    description:
+      "Discover top-notch gastroenterology care at Sansa Hospital in Adilabad. Our specialists treat a wide range of digestive disorders with advanced technology and compassionate care. Book now for optimal health.",
+  },
+  "/Hepatology": {
+    title: "Hepatology and Liver specialists at Sansa Hospital Adilabad",
+    description:
+      " Discover specialized hepatology care at Sansa Hospital Adilabad. Our expert Doctors. offers personalized treatments for liver disorders, ensuring optimal outcomes.",
+  },
+  "/Cosmetic-Dermatology": {
+    title: "Best skin and Dermatology specialists at Sansa Hospital Adilabad.",
+    description:
+      "Sansa Hospital Adilabad has exceptional skin and dermatology specialists. Receive personalized care and all laser and advanced treatments for your skin concerns. ",
+  },
+  "/Trichology": {
+    title: "Sansa Hospital Adilabad: Top Trichology and hair clinic.",
+    description:
+      "discover premium trichology care at Sansa Hospital, Adilabad. Tailored solutions for hair loss, scalp issues, and restoration. Book your consultation now! ",
+  },
+  "/gallery": {
+    title: "Sansa Hospital Adilabad: Photo Gallery",
+    description:
+      "Discover Sansa Hospital in Adilabad through our photo gallery. Explore our modern facilities, compassionate staff, and patient-centric environment. Get a visual insight into the quality care we offer.",
+  },
+  "/thank-you": {
+    title: "Thank You - SANSA Hospitals",
+    description: "Thank you for getting in touch with us at SANSA Hospitals.",
+  },
+};

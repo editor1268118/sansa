@@ -1,0 +1,24 @@
+import styles from "./thankYou.module.scss";
+import PrimaryButton from "../../components/Button/Button";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+function ThankYou() {
+  return (
+    <div className={styles.c_container}>
+      <div className={styles.c_card}>
+        <CheckCircleIcon
+          style={{ color: "#3fbbc0", width: "80px", height: "80px" }}
+        />
+        <h2>Appointment Confirmed!</h2>
+        <div className={styles.line} />
+        <p>
+          Thank you for booking an appointment at SANSA hospital. Your
+          appointment is confirmed. Our team will get in touch with you shortly
+          to provide any additional details or assistance.
+        </p>
+        <PrimaryButton label={"Back to Home"} link={"/"} />
+      </div>
+    </div>
+  );
+}
+
+export default ThankYou;

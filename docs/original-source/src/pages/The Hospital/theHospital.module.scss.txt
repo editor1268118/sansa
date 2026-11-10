@@ -1,0 +1,235 @@
+.whatsapp_section{
+    background-color: #3fbbc0;
+    // width: 240px;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px 10px;
+    display: flex;
+    // gap:10px;
+    align-items: center;
+    margin-top:12px;
+}
+.w_icon_wrapper{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.w_icon_wrapper > img {
+    width: 100%;
+    height: 100%;
+}
+.w_text_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+
+}
+.w_text_wrapper > strong{
+    color: #fff;
+}
+
+
+.stickyBtn{
+    position: fixed;
+    bottom: 20px; 
+    right: 20px;
+}
+
+.heroContainer {
+  background-image: url("/src/compressed/compressed_10\ copy-2\ 1.jpg"); /* Correct the URL by removing spaces */
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  margin-top: 88px;
+}
+
+.heroInfoContainer {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f7f7f7;
+  text-align: left;
+}
+.heroInfoContainer > h2 {
+  color: #f7f7f7 !important;
+  text-align: left;
+  padding-left: 30px;
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    height: 140px;
+    background-position-x: 55%;
+  }
+  .heroInfoContainer {
+    width: 60%;
+  }
+  .heroInfoContainer > h2 {
+    font-size: 20px !important;
+    font-family: 'League Spartan', sans-serif !important;
+  }
+}
+
+
+
+.sectionBlockLayout {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    min-height: auto;
+    padding: 8px;
+    height: 145px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .columnBlockLayout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 250px;
+    word-break: break-word;
+    padding: 16px 20px;
+    margin: 20px 20px;
+    color: #3fbbc0 !important;
+    text-align: center;
+  }
+
+  .primaryHeading {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'League Spartan', sans-serif !important;
+    font-size: 48px !important; 
+    margin-bottom: 0px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sectionBlockLayout {
+      height: auto;
+      padding: 0px;
+    }
+  
+    .columnBlockLayout {
+      padding: 16px;
+      margin: 0px;
+    }
+  
+    .primaryHeading {
+      font-size: 32px !important;
+    }
+    .services_container{
+      gap:4em !important;  
+    }
+    .cardContainer{
+      margin-top: 0  !important;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .sectionBlockLayout {
+      height: 145px;
+    }
+  
+    .primaryHeading {
+      font-size: 32px;
+      font-family: 'League Spartan', sans-serif !important;
+      font-weight: bold;
+    }
+  }
+  
+  .cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 2em;
+
+    @media (min-width:1180px) {
+      margin-top: 4em;
+    }
+  }
+
+  // .aboutSansa{
+  //   text-align: center;
+  //   color: #3fbbc0 !important;
+  //   font-weight: bold;
+  //   font-family: 'League Spartan', sans-serif;
+  //   font-size: 32px;
+  //   margin-bottom: 20px;
+  // }
+
+  // .aboutHospital{
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   justify-content: center;
+  //   gap: 16px;
+  // }
+
+  .services_section{
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+.services_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  gap: 2em;
+}
+.services_card {
+  min-width: 330px;
+  max-width: 31.33%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.services_card  > img {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 20px;
+}
+.services_text_wrapper{
+    max-width: 380px;
+}
+.services_text_wrapper > h4 {
+    font-size: 22px;
+    color: #1b1b1b;
+    margin-bottom: 20px;
+}
+.services_text_wrapper > p {
+    color: #5e5e5e;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.services_section > h2 {
+  text-align: center;
+  color: #3fbbc0;
+  font-weight: bold;
+  font-family: "League Spartan", sans-serif;
+  font-size: 48px;
+  margin-bottom: 0px;
+}
+
+

@@ -1,0 +1,47 @@
+import img1 from "../compressed/compressed_NB02253.jpg";
+import img2 from "../compressed/compressed_NB02140_1.jpg"
+import img3 from "../compressed/compressed_NB02133_1.jpg"
+import img4 from "../compressed/compressed_patientcare1.jpg"
+import img5 from "../compressed/compressed_patientcare.jpg"
+import img6 from "../compressed/1704902615083.jpg"
+
+const hospitalCardContent = [
+  {
+    image: img1,
+    title: "State-of-the-art facilities",
+    alt: "history",
+    description: "Our hospital is equipped with cutting-edge technology and modern amenities to ensure the best possible care for our patients. From advanced imaging equipment to hygiene patient beds, we have everything you need for a comfortable, successful, and speedy recovery."
+  },
+  {
+    image: img2,
+    title: "Expert medical staff",
+    alt: "team",
+    description: "Our team of doctors, nurses, and specialists are experts in their fields, with years of experience and a passion for providing exceptional care. We work together to create personalized treatment plans that address each patient's unique needs and goals."
+  },
+  {
+    image: img3,
+    title: "Comprehensive services",
+    alt: "doctorComprehensive",
+    description: "At Sansa Hospital, we offer a wide range of medical services, from routine check-ups to endoscopy procedures. We also provide specialized care for conditions like Hair loss, Skin related problems and we also perform medically accurate Colonoscopy, Endoscopy for our beloved patients. As well as providing one-of-a-kind services to our clients regarding their Skin, Hair & Stomach."
+  },
+  {
+    image: img4,
+    title: "Patient-centred care",
+    alt: "patientcare",
+    description: "We understand that every patient is unique, which is why we prioritize individualized care and open communication with our patients and their families. We strive to create a warm and welcoming environment that fosters healing and promotes overall wellness."
+  },
+  {
+    image: img5,
+    title: "Community involvement",
+    alt: "community",
+    description: "As part of our commitment to the community, we offer educational programmes, health screenings, and other outreach initiatives to promote healthy living and disease prevention. We also partner with local organizations to support important causes and give back to those in need."
+  },
+  {
+    image: img6,
+    title: "Convenient location",
+    alt: "location",
+    description: "Located in the heart of the city, our hospital is easily accessible by public transportation and offers ample parking for patients and visitors. We also have a dedicated team of staff members who are available to assist with any questions or concerns you may have."
+  },
+];
+
+export default hospitalCardContent;

@@ -1,0 +1,46 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+import styles from "./Departments.module.scss";
+
+const Departments = ({ image1, image2, heading, text, description }) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+  return (
+    <>
+      <div
+        className={styles.container}
+        style={{ backgroundImage: `url(${image1})` }}
+      >
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          className={styles.content}
+        >
+          <h2 style={{ textAlign: "left" }} className={styles.heading}>
+            {heading}
+          </h2>
+          <p className={styles.para}>{text}</p>
+        </div>
+      </div>
+
+      <div className={styles.bottomContainer}>
+        <div className={styles.infoContainer}>
+          <img className={styles.imgContainer} src={image2} alt={heading} />
+        </div>
+        <div className={styles.infoContainer}>
+          <h2 className={styles.heading}>{heading}</h2>
+          <p className={styles.description}>{description}</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Departments;

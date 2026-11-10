@@ -1,0 +1,719 @@
+import { useState, useEffect, useRef, useCallback } from "react";
+import Marquee from "react-fast-marquee";
+import { useInView } from "react-intersection-observer";
+import animateCount from "../../utils/animateCount";
+import styles from "../Home/home.module.scss";
+import classes from "./dermaLp.module.scss";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import patientCareImg from "../../../public/derma-hero-img.jpg";
+import { baseServerUrl } from "../../constant";
+import freeTag from "../../compressed/free.png";
+
+import {
+  FaHospitalUser,
+  FaUserDoctor,
+  FaCommentMedical,
+} from "react-icons/fa6";
+import { ImLab } from "react-icons/im";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import ReCAPTCHA from "../../components/ConfiguredRecaptcha";
+
+// Mui imports
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import doctorImg from "../../compressed/compressed_dr2.jpg";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import FlipCards from "../../components/FlipCards/FlipCards";
+import DermaNav from "../../components/DermaNav/DermaNav";
+import DermaFaq from "../../components/DermaFaq/DermaFaq";
+// mui imports end
+
+const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
+const iconMap = {
+  FaHospitalUser: FaHospitalUser,
+  FaUserDoctor: FaUserDoctor,
+  FaCommentMedical: FaCommentMedical,
+  ImLab: ImLab,
+};
+
+const numbersData = [
+  {
+    icon: "FaHospitalUser",
+    size: 40,
+    color: "#fff",
+    count: 3,
+    description: "Hospital's Journey",
+  },
+  {
+    icon: "FaUserDoctor",
+    size: 40,
+    color: "#fff",
+    count: 8,
+    description: "Years of Experience",
+  },
+  {
+    icon: "FaCommentMedical",
+    size: 40,
+    color: "#fff",
+    count: 4000,
+    description: "Satisfied Patients",
+  },
+  {
+    icon: "ImLab",
+    size: 40,
+    color: "#fff",
+    count: 3500,
+    description: "Successes: Derma Mastery",
+  },
+];
+
+function CountUp({ end }) {
+  const [count, setCount] = useState(0);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      animateCount(0, end, 2000, setCount);
+    }
+  }, [inView, end]);
+
+  return (
+    <h2 style={{ color: "#fff" }} ref={ref}>
+      {count}+
+    </h2>
+  );
+}
+function DermaLp() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+
+  useEffect(() => {
+    document.title =
+      "SANSA | Best Gastro, Liver, Skin, hair Hospitals in Adilabad";
+  }, []);
+
+  const [appointmentData, setAppointmentData] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+    department: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const navigate = useNavigate();
+
+  // const handleInput = (event) => {
+  //   const { name, value } = event.target;
+
+  //   // Validation for name (allow only alphabets)
+  //   if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) {
+  //     // alert("Please enter alphabets only in the Name field");
+  //     return;
+  //   }
+
+  //   // Validation for mobile (allow only 10 digits)
+  //   if (name === "mobile" && value.length > 10) {
+  //     alert("Mobile number should not exceed 10 digits");
+  //     return;
+  //   }
+
+  //   setAppointmentData({
+  //     ...appointmentData,
+  //     [name]: value,
+  //   });
+  // };
+  const handleInput = (event) => {
+    const { name, value } = event.target;
+
+    // Validation for name (allow only alphabets and spaces)
+    if (name === "name") {
+      const regex = /^[A-Za-z\s]*$/;
+      if (!regex.test(value)) {
+        return; // Don't update state if input contains non-alphabet characters
+      }
+    }
+
+    // Update the state with valid input
+    setAppointmentData({
+      ...appointmentData,
+      [name]: value,
+    });
+  };
+  const handleRecaptchaChange = (token) => {
+    console.log("Recaptcha token generated");
+    if (!token) {
+      alert("reCAPTCHA failed. Please try again.");
+      setRecaptchaToken("");
+      return;
+    }
+    console.log("recaptcha token", token);
+    setRecaptchaToken(token);
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    // Validate name field (only alphabets)
+    if (!/^[a-zA-Z\s]*$/.test(appointmentData.name)) {
+      // alert("Name should only contain alphabets");
+      return;
+    }
+
+    // Validate mobile field (must be exactly 10 digits)
+    if (appointmentData.mobile.length !== 10) {
+      alert("Mobile number must be exactly 10 digits");
+      return;
+    }
+
+    if (!recaptchaToken) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        `${baseServerUrl}api/send-email`,
+        { ...appointmentData, recaptchaToken },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status == 200) {
+        setLoading(false);
+        setState({ ...state, right: false });
+        navigate("/thank-you");
+        console.log("Response:", response.data);
+      } else {
+        setLoading(false);
+        alert("There was an error!");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error("There was an error!", error);
+    }
+  };
+
+  // mui drawer code
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const toggleDrawer = useCallback(
+    (anchor, open) => (event) => {
+      if (
+        event.type === "keydown" &&
+        (event.key === "Tab" || event.key === "Shift")
+      ) {
+        return;
+      }
+
+      setState((prevState) => ({ ...prevState, [anchor]: open }));
+    },
+    [setState]
+  );
+  useEffect(() => {
+    setState({ right: true });
+  }, []);
+  const list = (anchor) => (
+    <Box
+      sx={{
+        top: isMobile ? "0rem" : "2rem",
+        width: isMobile ? "100vw" : "380px",
+        height: isMobile ? "100%" : "auto",
+        paddingY: isMobile ? "0px" : "0px",
+        overflowY: "hidden",
+        overflowX: "hidden", // Hide horizontal scrollbar
+      }}
+      role="presentation"
+      onClick={(event) => event.stopPropagation()} // Prevent closing on input click
+      onKeyDown={(event) => event.stopPropagation()} // Prevent closing on input keydown
+    >
+      <div className={styles.h_form_container}>
+        <form
+          onSubmit={submitHandler}
+          className={styles.form}
+          id="form"
+          style={{ fontFamily: "Lexend, sans-serif" }}
+        >
+          <h2 style={{ textAlign: "center", color: "#3fbbc0" }}>
+            Request a Call Back
+          </h2>
+          <div className={styles.f_line}></div>
+          <div className={styles.form_group}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your Name"
+              required
+              onChange={handleInput}
+              value={appointmentData.name}
+              className={styles.form_input}
+              style={{ fontFamily: "Lexend, sans-serif" }}
+            />
+
+            <input
+              name="mobile"
+              placeholder="Enter your Mobile"
+              required
+              type="tel"
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, "");
+              }}
+              onChange={handleInput}
+              className={styles.form_input}
+              style={{ fontFamily: "Lexend, sans-serif" }}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              onChange={handleInput}
+              className={styles.form_input}
+              style={{ fontFamily: "Lexend, sans-serif" }}
+            />
+
+            <ReCAPTCHA sitekey={siteKey} onChange={handleRecaptchaChange} />
+            <br />
+            <button
+              disabled={loading || !siteKey}
+              type="submit"
+              className={styles.primaryButton}
+              style={{ fontFamily: "Lexend, sans-serif" }}
+            >
+              {loading ? "Reserving Your Slot..." : "Submit"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </Box>
+  );
+  // mui drawer code end
+
+  // exit intend form trigger
+  useEffect(() => {
+    const handleMouseLeave = (e) => {
+      if (
+        e.clientY <= 0 ||
+        e.clientX <= 0 ||
+        e.clientX >= window.innerWidth ||
+        e.clientY >= window.innerHeight
+      ) {
+        toggleDrawer("right", true)(e);
+      }
+    };
+
+    document.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [toggleDrawer]);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (
+        e.clientY <= 0 || // Mouse leaves through the top
+        e.clientX <= 0 || // Mouse leaves through the left
+        e.clientX >= window.innerWidth || // Mouse leaves through the right
+        e.clientY >= window.innerHeight // Mouse leaves through the bottom
+      ) {
+        toggleDrawer("right", true);
+      }
+    };
+
+    // Attach the mousemove listener
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      // Clean up when the component unmounts
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [toggleDrawer]);
+
+  return (
+    <div>
+      <DermaNav />
+      {/* hero section */}
+      <div className={classes.t_container}>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          className={classes.t_info_container}
+        >
+          <h1>
+            #No.1 Trusted Laser Skin and Cosmetic Treatments in Adilabad <br />
+          </h1>
+          <div className={classes.separator}></div>
+
+          <h3 className={classes.t_desc}>
+            Say Goodbye to Painful Skin Discomfort and Welcome Pain-free laser
+            Skin treatment for best results. <br />
+          </h3>
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          className={classes.t_details_container}
+        >
+          <img src={patientCareImg} alt="" />
+        </div>
+      </div>
+      {/* hero section end */}
+
+      {/* form section */}
+      <div className={classes.t_container}>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          className={classes.t_details_container}
+        >
+          <div
+            className={styles.h_form_container}
+            style={{ border: "1px solid lightgray", borderRadius: "4px" }}
+          >
+            <form
+              onSubmit={submitHandler}
+              className={styles.form}
+              id="form"
+              style={{ fontFamily: "Lexend, sans-serif" }}
+            >
+              <h2 style={{ textAlign: "center", color: "#3fbbc0" }}>
+                Book Your Appointment
+              </h2>
+
+              <div
+                className={classes.separator}
+                style={{ marginLeft: "10px" }}
+              ></div>
+              <br />
+              <div className={styles.form_group}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your Name"
+                  required
+                  onChange={handleInput}
+                  value={appointmentData.name}
+                  className={styles.form_input}
+                  style={{ fontFamily: "Lexend, sans-serif" }}
+                />
+
+                <input
+                  name="mobile"
+                  placeholder="Enter your Mobile"
+                  required
+                  type="tel"
+                  onInput={(e) => {
+                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                  }}
+                  onChange={handleInput}
+                  className={styles.form_input}
+                  style={{ fontFamily: "Lexend, sans-serif" }}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  onChange={handleInput}
+                  className={styles.form_input}
+                  style={{ fontFamily: "Lexend, sans-serif" }}
+                />
+
+                <ReCAPTCHA sitekey={siteKey} onChange={handleRecaptchaChange} />
+                <br />
+                <button
+                  disabled={loading}
+                  type="submit"
+                  className={styles.primaryButton}
+                  style={{ fontFamily: "Lexend, sans-serif" }}
+                >
+                  {loading ? "Reserving Your Slot..." : "Submit"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          className={classes.t_info_container}
+        >
+          <h1>
+            Expert Solutions for Your Skin with Laser Technology <br />
+          </h1>
+          <div className={classes.separator}></div>
+
+          <h3 className={classes.t_desc}>
+            Highly qualified and experienced dermatologist, cosmetologist, skin
+            specialist, skin doctor at Sansa Hospital have vast experience and
+            expertise in handing wide range of medical and surgical treatments
+            for various skin diseases through latest & advanced modalities.
+            <br />
+          </h3>
+        </div>
+      </div>
+      {/* form section end */}
+
+      {/* about doctor section */}
+      <div className={`${classes.t_container} ${classes.t_container_reverse}`}>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          className={classes.t_info_container}
+          id="doctors-section"
+        >
+          <h1 style={{ marginBottom: "0px" }}>
+            Derma Expert Dr. Saritha <br />
+          </h1>
+
+          <h3 className={classes.t_desc} style={{ color: "#000" }}>
+            MBBS (OSM), MD (DVL) (OSM), DDVL (OSM) - Ex-consultant Dermatologist
+            and Cosmetologist at Olivia Skin & Hair Clinics
+          </h3>
+          <div className={classes.separator}></div>
+
+          <h3 className={classes.t_desc}>
+            With 8 successful years of experience as a Dermatologist and
+            Cosmetologist, she is introducing a new wave of skincare to Adilabad
+            by pioneering the first-ever Laser Treatment. Supported by a
+            committed and devoted staff, her approach is transforming the
+            landscape of skincare in the region. <br />
+          </h3>
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          className={classes.t_details_container}
+        >
+          <img
+            style={{ borderRadius: "50%", width: "340px", height: "340px" }}
+            src={doctorImg}
+            alt=""
+          />
+        </div>
+      </div>
+      {/* about doctor section end */}
+
+      {/* numbers section  */}
+      <h1 className={classes.header} id="why-choose-us">
+        Why Choose Sansa Hospital?
+      </h1>
+      <div className={classes.separator} style={{ margin: "auto" }}></div>
+      <div
+        className={styles.numbers_container}
+        style={{
+          backgroundColor: "#ffff",
+          marginTop: "0px",
+          marginBottom: "0px",
+        }}
+      >
+        {numbersData.map((item, index) => {
+          const IconComponent = iconMap[item.icon];
+          return (
+            <div
+              key={index}
+              className={styles.numbers_card}
+              style={{ backgroundColor: "#3fbbc0" }}
+            >
+              <div
+                data-aos="zoom-in"
+                className={styles.icon_wrapper}
+                style={{ backgroundColor: "#ef5743" }}
+              >
+                <IconComponent size={item.size} color={item.color} />
+              </div>
+              <CountUp end={item.count} style={{ color: "#fff" }} />
+              <p style={{ fontFamily: "Lexend, sans-serif", color: "#fff" }}>
+                {item.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+      {/* numbers section end */}
+
+      {/* services section */}
+      <h1 className={classes.header}>Sansa’s Top Notch Derma Services</h1>
+      <div
+        id="services-section"
+        className={classes.separator}
+        style={{ margin: "auto" }}
+      ></div>
+      <FlipCards />
+      {/* services section end */}
+
+      {/* testimonials section */}
+      <div className={classes.testimonials_section}>
+        <h2 className={classes.header}>Testimonials</h2>
+        <div className={classes.separator} style={{ margin: "auto" }}></div>
+        <Marquee
+          pauseOnHover={true}
+          className={classes.marquee_section}
+          style={{ zIndex: -1 }}
+        >
+          <div className={classes.testimonials_wrapper}>
+            <div className={classes.testimonial_card}>
+              <p>
+                &quot;I had a very positive experience at your hospital. The
+                staff were kind and professional, and the facilities were clean
+                and well-maintained. Thank you for the excellent care!&quot;
+              </p>
+              <div className={classes.testimonial_info}>
+                <img src="./msg.svg" width={50} alt="testimonial" />
+                <h4>Srikar Srikar</h4>
+              </div>
+            </div>
+            <div className={classes.testimonial_card}>
+              <p>
+                &quot;Dr. Sarita is an exceptional dermatologist. Her expertise
+                is evident in accurate diagnoses, and she explains treatments
+                thoroughly. Personable and punctual, creating a positive patient
+                experience. Highly recommended.&quot;
+              </p>
+              <div className={classes.testimonial_info}>
+                <img src="./msg.svg" width={50} alt="testimonial" />
+                <h4>Almala Supriya</h4>
+              </div>
+            </div>
+            <div className={classes.testimonial_card}>
+              <p>
+                &quot;Sansa Hospital delivers unmatched skin care with a team of
+                knowledgeable and friendly professionals. From the spotless
+                facilities to the personalized attention, the entire experience
+                was seamless. I wholeheartedly recommend their dermatology
+                services for outstanding care.&quot;
+              </p>
+              <div className={classes.testimonial_info}>
+                <img src="./msg.svg" width={50} alt="testimonial" />
+                <h4>Krishna</h4>
+              </div>
+            </div>
+            <div className={classes.testimonial_card}>
+              <p>
+                &quot;I have seen good results after my skin treatment. I
+                strongly recommend this hospital.&quot;
+              </p>
+              <div className={classes.testimonial_info}>
+                <img src="./msg.svg" width={50} alt="testimonial" />
+                <h4>Sathya Gajengi</h4>
+              </div>
+            </div>
+            <div style={{ width: "10px" }}></div>
+          </div>
+        </Marquee>
+      </div>
+      {/* testimonials section end */}
+
+      {/* CTA section */}
+      <div
+        data-aos="fade-up"
+        data-aos-once="true"
+        className={classes.free_fibro_section}
+      >
+        <img src={freeTag} alt="Free fibro scan" />
+
+        <div className={classes.f_text_wrapper}>
+          <h2>Ready For Your Skin Transformation?</h2>
+          <p> Book Your Free Consultation</p>
+        </div>
+        <div className={classes.f_btn_wrapper}>
+          <button
+            className={classes.knowMoreBtn}
+            onClick={toggleDrawer("right", true)}
+          >
+            CONTACT US
+          </button>
+        </div>
+      </div>
+      {/* CTA section end */}
+
+      {/* FAQ Section */}
+      <div id="faq-section" className={styles.faq_container}>
+        <h2 className={classes.header}> FAQ&apos;s</h2>
+        <div className={classes.separator} style={{ margin: "auto" }}></div>
+        <DermaFaq />
+      </div>
+      {/* FAQ Section end */}
+
+      {/* form drawer */}
+      <div>
+        {["right"].map((anchor) => (
+          <React.Fragment key={anchor}>
+            {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+              sx={{
+                "& .MuiDrawer-paper": {
+                  top: isMobile ? "0rem" : "auto",
+                  bottom: isMobile ? "auto" : "60px",
+                  width: isMobile ? "100vw" : "380px",
+                  height: isMobile ? "auto" : "550px",
+                  paddingY: isMobile ? "0px" : "0px",
+                  overflowY: "hidden",
+                  overflowX: "hidden", // Hide horizontal scrollbar
+                },
+              }}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        ))}
+      </div>
+      {/* form drawer end */}
+
+      {/* sticky btn */}
+      <button
+        className={styles.stickyBtn}
+        onClick={toggleDrawer("right", true)}
+      >
+        <div className={styles.whatsapp_section}>
+          <div className={styles.w_icon_wrapper}>
+            <CalendarMonthIcon style={{ color: "#fff" }} />
+          </div>
+          <div className={styles.w_text_wrapper}></div>
+        </div>
+      </button>
+    </div>
+  );
+}
+
+export default DermaLp;

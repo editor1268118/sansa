@@ -1,0 +1,100 @@
+footer{
+    background-color: #161616;
+    color: #fff;
+    padding: 1em;
+    padding-top:2em ;
+
+}
+.footer_container{
+    display: flex;
+    justify-content: space-between;
+    }
+.footer_logo_container{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    padding: 1em;
+    gap: 1em;
+}
+
+.footer_contact_container{
+    width: 35%;
+    .contact_container{
+        display: flex;
+        align-items: center;
+        gap:10px    
+    }
+    .contact_icon{
+        background-color: #33383b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 4px;
+    }
+}
+.footer_connect_container{
+    width: 20%;
+    font-size: 14px;
+    .social_icons{
+        display: flex;
+        gap: 10px;
+    }
+    .social_icon{
+        background-color: #33383b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 4px;
+    }
+}
+.footer_links{
+    margin-top: 2em;
+}
+.copyright_text{
+    color: #a9a9a9;
+    text-align: center;
+    margin-top: 3em;
+    font-size: 14px;
+}
+
+@media (max-width:980px) {
+    .footer_container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer_logo_container{
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        place-items: center;
+    }
+    .footer_contact_container{
+        width: 100%;
+        .contact_container{
+            place-content: center;
+            padding: 0px;
+            text-align: center;
+            p{
+                margin: 5px;
+            }
+        }
+        .contact_icon{
+            display: none;
+        }
+    }
+    .footer_connect_container{
+        width: 100%;
+        text-align: center;
+        margin-top: 1em;
+        .social_icons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }        
+    }
+}

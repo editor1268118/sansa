@@ -1,0 +1,375 @@
+{
+  "gastro": {
+    "info": {
+      "image1": "/src/compressed/compressed_heroimgs1.jpg",
+      "image2": "/src/compressed/compressed_gastro_main.jpg",
+      "heading": "Gastroenterology",
+      "text": "Departments / ​Gastroenterology",
+      "description": "A Medical Department that is renowned for its research and advancements in Gastrointestinal diseases. Being the finest endoscopy and cosmetology center, our doctors are highly trained in treating the digestive system. Including esophagus, stomach and intestines. We also offer our professional services to patients whose problems deal with liver."
+    },
+    "cards": [
+      {
+        "image": "/src/compressed/compressed_endo.jpg",
+        "title": "ENDOSCOPY",
+        "description": "This process Helps to take a deeper look inside your body. A long tube with a small camera is sent delicately through mouth to collect inner tissue samples which are further studied by professionals to determine accurate cure."
+      },
+      {
+        "image": "/src/compressed/compressed_colonoscopy.jpg",
+        "title": "COLONOSCOPY",
+        "description": "A procedure that involves endoscopic examination of Colon (Large Intestine). This is achieved by the passage of Flexible long tube with a tiny camera through your rectum to colon. This helps to learn about swollen or irritating tissue."
+      },
+      {
+        "image": "/src/compressed/compressed_sansa5.jpg",
+        "title": "ERCP",
+        "description": "An endoscopic procedure done to find the stones or tumours present in the liver, gallbladder & pancreatic ducts. This is done through the combination of X-ray and long flexible lighted tube."
+      },
+      {
+        "image": "/src/compressed/compressed_banding_evl.jpg",
+        "title": "BANDING / EVL",
+        "description": "Treated for patients with acute variceal bleeding. EVL is done to control enlarged varices to prevent bleeding. A scope is supplied through mouth, as the varices get found, the scope will be removed, and the banding device will be attached to the end of the scope and doctor will band it at once."
+      },
+      {
+        "image": "/src/compressed/compressed_stents1.jpg",
+        "title": "LUMINAL STENTS",
+        "description": "A surgical process, where devices know as Stens are strategically placed in the Gastrointestinal tracts of the patient. This process helps to expand the lumen and solve any obstructions present in the intestine."
+      },
+      {
+        "image": "/src/compressed/throat2_compressed.jpg",
+        "title": "FOREIGN BODY REMOVAL",
+        "description": "Any unwanted substance how big or small which is found on the body or within the body (stomach or liver) is removed through acute precision. This process is done through alligator or splinter forceps."
+      }
+    ]
+  },
+  "liver": {
+    "info": {
+      "image1": "/src/compressed/b4 1.jpg",
+      "image2": "/src/compressed/compressed_hepatology.jpg",
+      "heading": "Hepatology",
+      "text": "Departments / Hepatology",
+      "description": "A Branch of Medicine that is solely responsible for treating any kind of problematic issues that occur in your Liver. A Sub-Specialty of gastroenterology, Hepatology has been growing in rapid speed to meet the demands of Patients and Clients who are dealing with many complications related to Liver. Many patients have experienced problems with liver which at large level went undiagnosed, but we at SANSA Hospital are dedicated to treat every issue regarding your Liver."
+    },
+    "cards": [
+      {
+        "image": "/src/compressed/alcohol-and-liver.jpg",
+        "title": "ALCOHOL LIVER DISEASE",
+        "description": "Alcohol related Liver disease refers to the damage caused by the excessive intake of alcohol to liver, this covers a wide spectrum disease that include Fatty liver disease, Alcoholic Hepatitis, Cirrhosis. Factors such as Environmental, Genetic, Immunology play a key role in Alcohol liver disease. At SANSA Hospital we have trained professionals who deal with any variation of Alcohol Liver Disease."
+      },
+      {
+        "image": "/src/compressed/compressed_NAFL.jpg",
+        "title": "NAFLD",
+        "description": "Non-Alcoholic Fatty liver Disease(NAFLD) is a condition that occurs when excess fat builds up in the liver. This fat is not generated due to excessive alcohol consumption. NAFLD does not cause major liver damage but causes pain from the enlargement of the liver. Being overweight, Type 2 diabetes, High Blood pressure can cause NAFLD , due to this Fatigue and pain in upper right abdomen are faced by the patient. Complete medical, physical, and supportive care can be employed to treat NAFLD."
+      },
+      {
+        "image": "/src/compressed/compressed_nash.jpg",
+        "title": "NASH",
+        "description": "Non-Alcoholic steatohepatitis(NASH) is a form of NAFLD in which you will be experiencing inflammation of the liver. It makes liver swell and causes damage due to the fat deposits present in your liver. Symptoms of NASH include shortness of breath, Itchy skin, swelling of legs. NASH is mostly seen in people over 50 years with certain Genetic risk factors. Eating healthy diet ,keeping weight under control and regular Checkups from doctors will decrease the risk of NASH on your liver."
+      },
+      {
+        "image": "/src/compressed/viral-hepatology_compressed.jpg",
+        "title": "VIRAL HEPATOLOGY (a,b,c,d,e)",
+        "description": "Hepatitis indicates inflammation in your liver. As a vital organ of the body, the liver process nutrients, fights infections and filters the blood. Heavy consumption of Alcohol , Toxins and some medical conditions may cause Hepatitis. Most common types of hepatitis are Hepatitis A, Hepatitis B , Hepatitis C, Hepatitis D. Treatments for Viral Hepatitis broadly includes Supportive Care , Intravenous Rehydration and Pharmacologic Therapy."
+      },
+      {
+        "image": "/src/compressed/compressed_dili.jpg",
+        "title": "DILI TREATMENT",
+        "description": "Drug Induced liver injury(DILI) is an adverse toxic drug reaction resulting in liver injury. DILI is the most common cause of Acute liver Failure(ALF). Environmental and Drug related factors play a key role in pathogenies of DILI. The diagnosis for DILI can be made according to the pattern of patient’s liver injury. Other possible ways to manage DILI include corticosteroids and ursodeoxycholic acid."
+      },
+      {
+        "image": "/src/compressed/compressed_fibroscan.jpg",
+        "title": "FIBRO SCAN (Liver Scan)",
+        "description": "It is a simple but effective way to examine your Liver through screening process. Ultrasound is used carefully and non-invasively to scan your liver to check for any fibrosis or fattiness. Cirrhosis, Obesity, Alcoholic liver Diseases can be easily found in their early stage through fibro scan and can be treated appropriately based on the scanning. Fibro scan is painless, easy, and quick."
+      }
+    ]
+  },
+  "skin": {
+    "info": {
+      "image1": "/src/compressed/b3 1.jpg",
+      "image2": "/src/compressed/compressed_cosmo_derma.jpg",
+      "heading": "Cosmetic Dermatology",
+      "text": "Departments / ​Dermatology / Cosmetic Dermatology",
+      "description": "A Rapidly growing medical department rendering its impeccable services to make people look amazingly good and completely feel confident about themselves. From Hair Styling to Nail Styling, From Cosmetics to Skin Care. Cosmetology professionals have been setting up the latest trends in various aspects of Beauty . From helping patients find their appropriate Skin & Hair type to providing them with customized styling options, cosmetology has been leading the way in solving Client’s Skin and Hair problems."
+    },
+    "cards": [
+      {
+        "image": "/src/compressed/compressed_LHR.jpg",
+        "title": "LASER HAIR REDUCTION",
+        "description": "Any wanted hair present on your body will be easily removed by the concentrated beam of light (Laser) in a precise manner. The pigment in the hair absorbs the light from the laser, this allows the skin to decrease the rate of the growth of the hair."
+      },
+      {
+        "image": "/src/compressed/compressed_NB08666_1.jpg",
+        "title": "CARBON PEEL",
+        "description": "A layer of liquid carbon will be spread across the face where it absorbs oil, dirt, and dead skin cells. Laser removes the dried carbon layer. This process is done to treat uneven skin tone , oily skin and enlarged pores giving smoothness to your skin."
+      },
+      {
+        "image": "/src/compressed/compressed_NB08740_1.jpg",
+        "title": "MNRF TREATMENT",
+        "description": "Scars are a form of tissues formed on the skin due to accidents, burns, acne, and surgery. Microneedling Radiofrequency [MNRF] is a non-surgical process in which radio frequency energy will be delivered into the deeper layers of the skin through small needles thus helping the skin to rejuvenated overall."
+      },
+      {
+        "image": "/src/compressed/compressed_NB08746.jpg",
+        "title": "STRECH MARKS",
+        "description": "Strech Marks usually appear when our skin shrinks or stretches which leads to the rupture of collagen and elastin. Microneedling Radiofrequency(MNRF) and Laser Skin resurfacing treatments are mostly used to treat stretch marks anywhere on the body."
+      },
+      {
+        "image": "/src/compressed/Wart treatment_compressed.jpg",
+        "title": "SKIN TAG/WART REMOVAL",
+        "description": "Small brownish pores formed on the body, mostly on the face and neck are carefully removed without any complications. Cryotherapy or Excision are the commonly used methods to remove the small growths on the body."
+      },
+      {
+        "image": "/src/compressed/tattoo removal_compressed.jpg",
+        "title": "TATTOO REMOVAL",
+        "description": "Tattoos might be stylish but as time passes either people will regret it or experience the negative side effects of the ink that is used in the tattoo. Advance Laser Treatment is used to break down pigment colors with high intensity light beam even hard ink tattoos can be removed through advanced treatment."
+      },
+      {
+        "image": "/src/compressed/compressed_HF.jpg",
+        "title": "HYDRAFACIAL/OXYFACIAL",
+        "description": "HydraFacial is a process that exfoliates the deeper skin, reduces acne, mechanically extracts & hydrates the skin, and improves texture of the skin. Oxyfacial gives you fuller and plumper skin with added benefits of improved circulation and youthful glow by applying pressurized oxygen to skin surface."
+      },
+      {
+        "image": "/src/compressed/compressed_excimer.jpg",
+        "title": "TARGETED PHOTOTHERAPHY (EXCIMER)",
+        "description": "Also known as Excimer laser therapy. This process uses Ultraviolet B (UVB) light to treat the affected skin areas. Used in the treatment to stop or slow the development of Vitiligo. A highly effective, painless and safe treatment."
+      },
+      {
+        "image": "/src/compressed/compressed_NB08671_1.jpg",
+        "title": "LASER TONING",
+        "description": "A revolutionary treatment that helps in treating hyperpigmentation and age Spots. Laser Toning helps increase in Collagen production which in turn provides support and gives strength to skin. Restores skin natural ability to heal and minimizes pores present on the skin."
+      }
+    ]
+  },
+  "hair": {
+    "info": {
+      "image1": "/src/compressed/b4 1.jpg",
+      "image2": "/src/compressed/trichology_compressed.jpg",
+      "heading": "Trichology",
+      "text": "Departments / ​Dermatology / Trichology",
+      "description": "It is a medical branch dedicated to diagnosing and treating the problems associated with Hair and Scalp. Trichology professionals deal with the numerous conditions of the hair and scalp either to cure or control the disease. Specialists of Trichology have committed themselves to accurately study and produce solutions for your hair. Some of the fundamental issues that are dealt with in Trichology are Hair loss, patterned baldness, scalp and hair infections."
+    },
+    "cards": [
+      {
+        "image": "/src/compressed/compressed_hairtreatment.jpg",
+        "title": "HAIR LOSS TREATMENT",
+        "description": "Hormonal changes, Hereditary, Aging , Stress, Illness causes us to lose our hair rapidly as we experience our life. Losing hair causes severe emotional damage to many people. But many Medical advancements have generated to treat Hair loss effectively."
+      },
+      {
+        "image": "/src/compressed/compressed_NB08861.jpg",
+        "title": "PRP TREATMENT",
+        "description": "Platelet rich plasma is a process where the patient’s plasma is drawn from the body and injected into the scalp. The rich growth factors of the patient’s plasma advance the strength of the cells in the scalp and offers more increase in the hair."
+      },
+      {
+        "image": "/src/compressed/baldness.jpg",
+        "title": "PATTERNED BALDNESS",
+        "description": "Male and Female patterned baldness is quite common in both genders. For men it usually starts when they reach thirty. For women it starts after menopause. PRP treatment, Red light therapy, Hair Transplant are commonly used for both males and females who experience patterned baldness."
+      }
+    ]
+  },
+  "doctors": {
+    "doctors": [
+      {
+        "name": "Dr. V. SACHIN KUMAR",
+        "image": "/src/compressed/compressed_dr0.jpg",
+        "alt": "Dr. Sachin Kumar Gastroenterology & Hepatology doctor at Sansa Hospital Adilabad",
+        "qualifications": "MBBS (OSM), MD (KMC-MAHE), DM (Gastroenterology & Hepatology) (AMC) (Gold Medalist), Fellowship in Advanced Endoscopy - Ex-consultant at Yashoda Hospitals",
+        "description": "With 8 years of experience in Gastroenterology and Hepatology, along with a fellowship in Endoscopy, he has established the first-ever Gastroenterology Clinic in Adilabad. He is determined to bring immensely valuable and medically advanced treatments to the community."
+      },
+      {
+        "name": "Dr. SARITHA AADHI",
+        "image": "/src/compressed/compressed_dr2.jpg",
+        "alt": "Dr. Saritha Aadhi Dermatologist and Cosmetologist at Sansa Hospital Adilabad",
+        "qualifications": "MBBS (OSM), MD (DVL) (OSM), DDVL (OSM) - Ex-consultant Dermatologist and Cosmetologist at Olivia Skin & Hair Clinics",
+        "description": "With 8 successful years of experience as a Dermatologist and Cosmetologist, she is introducing a new wave of skincare to Adilabad by pioneering the first-ever Laser Treatment. Supported by a committed and devoted staff, her approach is transforming the landscape of skincare in the region."
+      }
+    ]
+  },
+  "faqs": {
+    "questionsAndAnswers": [
+      {
+        "question": "1. What are the benefits of laser skin treatments?",
+        "answer": "Laser skin treatments offer numerous benefits, including improved skin tone and texture, reduction of wrinkles and fine lines, acne scar removal, hyperpigmentation treatment, and overall skin rejuvenation. They can also target specific skin concerns like age spots, sun damage, and vascular lesions with precision, resulting in smoother and more youthful-looking skin with minimal downtime."
+      },
+      {
+        "question": "2. Are laser skin treatments safe for all skin types?",
+        "answer": "Most laser skin treatments are safe for all skin types when performed by a qualified professional using the appropriate technology. However, certain lasers are better suited for specific skin tones. For darker skin types, advanced lasers like Nd."
+      },
+      {
+        "question": "3. How long do the results of cosmetic treatments last?",
+        "answer": "The longevity of results from cosmetic treatments varies depending on the type of procedure, individual skin type, and aftercare routine. For example, laser skin resurfacing can provide results that last for several months to years, while maintenance sessions may be required for treatments like laser hair removal or acne scar reduction. Proper skincare and sun protection can extend the results significantly."
+      },
+      {
+        "question": "4. What is the recovery time for non-surgical procedures?",
+        "answer": "Recovery time for non-surgical procedures is generally minimal, ranging from no downtime to a few days of mild redness, swelling, or peeling. Procedures like laser treatments, chemical peels, and injectables typically allow patients to resume normal activities almost immediately, although it's essential to follow aftercare instructions for optimal healing and results."
+      },
+      {
+        "question": "5. Are there any side effects of laser skin treatments?",
+        "answer": "Common side effects of laser skin treatments include temporary redness, swelling, mild discomfort, and slight skin sensitivity. More rarely, there can be side effects like hyperpigmentation, hypopigmentation, or scarring, especially if the wrong type of laser is used for a particular skin type. To minimize risks, treatments should be performed by experienced professionals in a reputable clinic."
+      },
+      {
+        "question": "6. How many sessions are required for optimal results?",
+        "answer": "The number of sessions required varies based on the treatment type and individual skin condition. Typically, laser treatments for skin rejuvenation or scar removal may require 3-6 sessions spaced a few weeks apart. For laser hair removal, 6-8 sessions are common, depending on hair thickness and growth cycle. A consultation with a specialist will provide a personalized treatment plan for optimal results."
+      },
+      {
+        "question": "7. Can laser treatments be combined with other skincare procedures?",
+        "answer": "Yes, laser treatments can often be combined with other skincare procedures for enhanced results. Common combinations include laser treatments with chemical peels, microneedling, or injectable treatments like Botox and dermal fillers. Combining treatments can address multiple skin concerns simultaneously, resulting in a more comprehensive rejuvenation plan. A tailored consultation is essential to ensure the compatibility and safety of combined procedures."
+      },
+      {
+        "question": "8. What should I expect during a consultation for cosmetic treatments?",
+        "answer": "During a consultation for cosmetic treatments, you can expect a thorough skin assessment, discussion of your skincare goals, and an explanation of the available treatment options. The specialist will review your medical history, evaluate your skin type, and recommend a customized treatment plan. You'll also have the opportunity to ask questions about the procedures, costs, expected outcomes, and any pre- or post-care instructions."
+      },
+      {
+        "question": "9. How do I choose a reputable clinic for laser skin treatments?",
+        "answer": "Choosing a reputable clinic for laser skin treatments involves researching the clinic’s credentials, reading reviews, and verifying the experience and qualifications of the practitioners. Look for clinics that use advanced, FDA-approved laser technologies and prioritize patient safety. A good clinic will offer thorough consultations, transparent pricing, and detailed information about the treatments and expected results."
+      },
+      {
+        "question": "10. Are laser skin treatments suitable for sensitive skin?",
+        "answer": "Laser skin treatments can be suitable for sensitive skin, but the choice of laser and settings must be carefully customized. Some lasers, like fractional or low-energy lasers, are gentler and better suited for sensitive or reactive skin. It's crucial to consult with a specialist who can assess your skin type and recommend the safest, most effective treatment options tailored to your sensitivity concerns."
+      }
+    ]
+  },
+  "gallery": [
+    "/src/compressed/IMG_3027.webp",
+    "/src/compressed/IMG_3003.webp",
+    "/src/compressed/IMG_3004.webp",
+    "/src/compressed/IMG_3011.webp",
+    "/src/compressed/IMG_3012.webp",
+    "/src/compressed/IMG_3010.webp",
+    "/src/compressed/IMG_3036.webp",
+    "/src/compressed/IMG_3007.webp",
+    "/src/compressed/IMG_3022.webp",
+    "/src/compressed/IMG_3015.webp",
+    "/src/compressed/IMG_3017.webp",
+    "/src/compressed/IMG_3028.webp",
+    "/src/compressed/IMG_3038.webp",
+    "/src/compressed/IMG_3039.webp",
+    "/src/compressed/IMG_3040.webp",
+    "/src/compressed/IMG_3033.webp",
+    "/src/compressed/IMG_3034.webp",
+    "/src/compressed/IMG_3005.webp",
+    "/src/compressed/IMG_3045.webp",
+    "/src/compressed/IMG_3042.webp",
+    "/src/compressed/IMG_3046.webp",
+    "/src/compressed/IMG_3267.webp",
+    "/src/compressed/IMG_3037.webp",
+    "/src/compressed/IMG_3264.webp",
+    "/src/compressed/IMG_3030.webp",
+    "/src/compressed/IMG_1387.webp",
+    "/src/compressed/IMG_1393.webp",
+    "/src/compressed/IMG_1401.webp",
+    "/src/compressed/IMG_3461.webp",
+    "/src/compressed/IMG_3467.webp",
+    "/src/compressed/IMG_3472.webp",
+    "/src/compressed/IMG_3477.webp"
+  ],
+  "home": {
+    "infoPointsData": [
+      {
+        "icon": "ShareLocationIcon",
+        "title": "Deeply Rooted In Adilabad",
+        "description": "Our doctors don't just work here; they are an integral part of the community."
+      },
+      {
+        "icon": "HealthAndSafetyIcon",
+        "title": "Personalized Patient Care",
+        "description": "We believe in treating our patients like family, with personalized attention and care."
+      },
+      {
+        "icon": "Diversity1Icon",
+        "title": "Holistic Approach",
+        "description": "Emphasizing the importance of treating the whole person, not just the symptoms."
+      },
+      {
+        "icon": "MedicalServicesIcon",
+        "title": "Commitment to Excellence",
+        "description": "Continuously updating our skills and knowledge to provide the best possible care."
+      }
+    ],
+    "numbersData": [
+      {
+        "icon": "FaHospitalUser",
+        "size": 40,
+        "color": "#fff",
+        "count": 3,
+        "description": "Hospital's Journey"
+      },
+      {
+        "icon": "FaUserDoctor",
+        "size": 40,
+        "color": "#fff",
+        "count": 8,
+        "description": "Years of Experience"
+      },
+      {
+        "icon": "FaCommentMedical",
+        "size": 40,
+        "color": "#fff",
+        "count": 8000,
+        "description": "Satisfied Patients"
+      },
+      {
+        "icon": "ImLab",
+        "size": 40,
+        "color": "#fff",
+        "count": 6000,
+        "description": "Successes: Gastro-Derma Mastery"
+      }
+    ]
+  },
+  "facilities": {
+    "hospitalCardContent": [
+      {
+        "image": "/src/compressed/compressed_NB02253.jpg",
+        "title": "State-of-the-art facilities",
+        "alt": "history",
+        "description": "Our hospital is equipped with cutting-edge technology and modern amenities to ensure the best possible care for our patients. From advanced imaging equipment to hygiene patient beds, we have everything you need for a comfortable, successful, and speedy recovery."
+      },
+      {
+        "image": "/src/compressed/compressed_NB02140_1.jpg",
+        "title": "Expert medical staff",
+        "alt": "team",
+        "description": "Our team of doctors, nurses, and specialists are experts in their fields, with years of experience and a passion for providing exceptional care. We work together to create personalized treatment plans that address each patient's unique needs and goals."
+      },
+      {
+        "image": "/src/compressed/compressed_NB02133_1.jpg",
+        "title": "Comprehensive services",
+        "alt": "doctorComprehensive",
+        "description": "At Sansa Hospital, we offer a wide range of medical services, from routine check-ups to endoscopy procedures. We also provide specialized care for conditions like Hair loss, Skin related problems and we also perform medically accurate Colonoscopy, Endoscopy for our beloved patients. As well as providing one-of-a-kind services to our clients regarding their Skin, Hair & Stomach."
+      },
+      {
+        "image": "/src/compressed/compressed_patientcare1.jpg",
+        "title": "Patient-centred care",
+        "alt": "patientcare",
+        "description": "We understand that every patient is unique, which is why we prioritize individualized care and open communication with our patients and their families. We strive to create a warm and welcoming environment that fosters healing and promotes overall wellness."
+      },
+      {
+        "image": "/src/compressed/compressed_patientcare.jpg",
+        "title": "Community involvement",
+        "alt": "community",
+        "description": "As part of our commitment to the community, we offer educational programmes, health screenings, and other outreach initiatives to promote healthy living and disease prevention. We also partner with local organizations to support important causes and give back to those in need."
+      },
+      {
+        "image": "/src/compressed/1704902615083.jpg",
+        "title": "Convenient location",
+        "alt": "location",
+        "description": "Located in the heart of the city, our hospital is easily accessible by public transportation and offers ample parking for patients and visitors. We also have a dedicated team of staff members who are available to assist with any questions or concerns you may have."
+      }
+    ]
+  },
+  "values": {
+    "aboutHospital": [
+      {
+        "image": "/src/compressed/compressed_svision.jpg",
+        "title": "Our Vision",
+        "description": "To Contribute Greater and Meticulous services to our clients with utmost kindness and unwavering loyalty. As we go beyond the horizon to establish ourselves as the leading, caring and most compassionate providers."
+      },
+      {
+        "image": "/src/compressed/compressed_smission.jpg",
+        "title": "Our Mission",
+        "description": "To bring world class Health care services to each and everyone. To make sure our beloved patients are in the hands of safest, secure, and trained Doctors. To bring a precious smile to the faces of our Patients and to always be a paragon of hope and health."
+      },
+      {
+        "image": "/src/compressed/compressed_svalues.jpg",
+        "title": "Our Values",
+        "description": "We at SANSA are completely aligned with the spiritual values of Humanity. We uphold the dignity of Our Professional Moral Code. We ensure the rightful passage and protection of sacred medical treatment to our beloved patients."
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+import { useEffect } from "react";
+import styles from "./ourDoctors.module.scss";
+import img1 from "../../compressed/compressed_dr0.jpg";
+import img2 from "../../compressed/compressed_dr2.jpg";
+import PrimaryButton from "../../components/Button/Button";
+import Separator from "../../components/Separator/Separator";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { Link } from "react-router-dom";
+
+const doctors = [
+  {
+    name: "Dr. V. SACHIN KUMAR",
+    image: img1,
+    alt: "Dr. Sachin Kumar Gastroenterology & Hepatology doctor at Sansa Hospital Adilabad",
+    qualifications:
+      "MBBS (OSM), MD (KMC-MAHE), DM (Gastroenterology & Hepatology) (AMC) (Gold Medalist), Fellowship in Advanced Endoscopy - Ex-consultant at Yashoda Hospitals",
+    description:
+      "With 8 years of experience in Gastroenterology and Hepatology, along with a fellowship in Endoscopy, he has established the first-ever Gastroenterology Clinic in Adilabad. He is determined to bring immensely valuable and medically advanced treatments to the community.",
+  },
+  {
+    name: "Dr. SARITHA AADHI",
+    image: img2,
+    alt: "Dr. Saritha Aadhi Dermatologist and Cosmetologist at Sansa Hospital Adilabad",
+    qualifications:
+      "MBBS (OSM), MD (DVL) (OSM), DDVL (OSM) - Ex-consultant Dermatologist and Cosmetologist at Olivia Skin & Hair Clinics",
+    description:
+      "With 8 successful years of experience as a Dermatologist and Cosmetologist, she is introducing a new wave of skincare to Adilabad by pioneering the first-ever Laser Treatment. Supported by a committed and devoted staff, her approach is transforming the landscape of skincare in the region.",
+  },
+];
+
+const DoctorProfile = ({ doctor }) => (
+  <div className={styles.sContainer}>
+    <div className={styles.profileContainer}>
+      <div className={styles.profileImgContainer}>
+        <img
+          className={styles.profileImg}
+          src={doctor.image}
+          alt={doctor.alt}
+          data-aos="zoom-in"
+          data-aos-duration="1000d"
+        />
+      </div>
+      <div className={styles.profileInfoContainer}>
+        {/* <div className={styles.separator}></div> */}
+        <h2 className={styles.docName}>{doctor.name}</h2>
+        <p className={styles.qualifications}>{doctor.qualifications}</p>
+        <div className={styles.separator}></div>
+        <div>
+          <p className={styles.description}>{doctor.description}</p>
+          <PrimaryButton
+            label={"Book An Appointment"}
+            link={"/Book-an-Appointment"}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const OurDoctors = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+
+  useEffect(() => {
+    document.title = "Adilabad's Top Gastro & Skin Doctors - Sansa Hospital";
+  }, []);
+  return (
+    <div style={{ marginTop: "80px" }}>
+      <div className={`row ${styles.sectionBlockLayout}`}>
+        <div className={styles.container}>
+          <div className={styles.columnBlockLayout}>
+            <h1
+              data-aos="fade-down"
+              data-aos-anchor-placement="center-bottom"
+              data-aos-duration="1500"
+              className={styles.primaryHeading}
+            >
+              Meet Our Expert Medical Doctors: Dedicated to your health at
+              SANSA.
+            </h1>
+            <Separator />
+          </div>
+        </div>
+      </div>
+      {doctors.map((doctor, index) => (
+        <DoctorProfile key={index} doctor={doctor} />
+      ))}
+      {/* sticky btn */}
+      <Link className={styles.stickyBtn} to="/#form">
+        <div className={styles.whatsapp_section}>
+          <div className={styles.w_icon_wrapper}>
+            <CalendarMonthIcon style={{ color: "#fff" }} />
+          </div>
+          <div className={styles.w_text_wrapper}>
+            {/* <strong>Book an Appointment</strong> */}
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
+export default OurDoctors;

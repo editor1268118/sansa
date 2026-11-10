@@ -1,0 +1,113 @@
+import { useEffect } from "react";
+import img1 from "../../compressed/compressed_heroimgs1.jpg";
+import img2 from "../../compressed/compressed_gastro_main.jpg";
+import img3 from "../../compressed/compressed_endo.jpg";
+import img4 from "../../compressed/compressed_colonoscopy.jpg";
+import img5 from "../../compressed/compressed_sansa5.jpg";
+import img6 from "../../compressed/compressed_banding_evl.jpg";
+import img7 from "../../compressed/compressed_stents1.jpg";
+import img8 from "../../compressed/throat2_compressed.jpg";
+import Departments from "../../components/Departments/Departments";
+import styles from "./Gastroenterology.module.scss";
+import Card from "../../components/Card/Card";
+import Separator from "../../components/Separator/Separator";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { Link } from "react-router-dom";
+
+const Gastroenterology = () => {
+  const info = {
+    image1: img1,
+    image2: img2,
+    heading: "Gastroenterology",
+    text: "Departments / ​Gastroenterology",
+    description:
+      "A Medical Department that is renowned for its research and advancements in Gastrointestinal diseases. Being the finest endoscopy and cosmetology center, our doctors are highly trained in treating the digestive system. Including esophagus, stomach and intestines. We also offer our professional services to patients whose problems deal with liver.",
+  };
+
+  const cards = [
+    {
+      image: img3,
+      title: "ENDOSCOPY",
+      description:
+        "This process Helps to take a deeper look inside your body. A long tube with a small camera is sent delicately through mouth to collect inner tissue samples which are further studied by professionals to determine accurate cure.",
+    },
+    {
+      image: img4,
+      title: "COLONOSCOPY",
+      description:
+        "A procedure that involves endoscopic examination of Colon (Large Intestine). This is achieved by the passage of Flexible long tube with a tiny camera through your rectum to colon. This helps to learn about swollen or irritating tissue.",
+    },
+    {
+      image: img5,
+      title: "ERCP",
+      description:
+        "An endoscopic procedure done to find the stones or tumours present in the liver, gallbladder & pancreatic ducts. This is done through the combination of X-ray and long flexible lighted tube.",
+    },
+    {
+      image: img6,
+      title: "BANDING / EVL",
+      description:
+        "Treated for patients with acute variceal bleeding. EVL is done to control enlarged varices to prevent bleeding. A scope is supplied through mouth, as the varices get found, the scope will be removed, and the banding device will be attached to the end of the scope and doctor will band it at once.",
+    },
+    {
+      image: img7,
+      title: "LUMINAL STENTS",
+      description:
+        "A surgical process, where devices know as Stens are strategically placed in the Gastrointestinal tracts of the patient. This process helps to expand the lumen and solve any obstructions present in the intestine.",
+    },
+    {
+      image: img8,
+      title: "FOREIGN BODY REMOVAL",
+      description:
+        "Any unwanted substance how big or small which is found on the body or within the body (stomach or liver) is removed through acute precision. This process is done through alligator or splinter forceps.",
+    },
+  ];
+
+  useEffect(() => {
+    document.title =
+      "Sansa Hospital Adilabad: Premier Gastroenterology Services";
+  }, []);
+  return (
+    <div>
+      <div>
+        <Departments
+          image1={info.image1}
+          image2={info.image2}
+          heading={info.heading}
+          text={info.text}
+          description={info.description}
+        />
+      </div>
+      <div className={styles.container}>
+        <h1 className={styles.primaryH}>
+          Specialized Gastroenterology Treatments for Gastro in SANSA Hospital.
+        </h1>
+        <Separator />
+
+        <div className={styles.cardContainer}>
+          {cards.map((gastroCard, index) => (
+            <Card
+              key={index}
+              image={gastroCard.image}
+              title={gastroCard.title}
+              description={gastroCard.description}
+            />
+          ))}
+        </div>
+      </div>
+      {/* sticky btn */}
+      <Link className={styles.stickyBtn} to="/#form">
+        <div className={styles.whatsapp_section}>
+          <div className={styles.w_icon_wrapper}>
+            <CalendarMonthIcon style={{ color: "#fff" }} />
+          </div>
+          <div className={styles.w_text_wrapper}>
+            {/* <strong>Book an Appointment</strong> */}
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
+export default Gastroenterology;

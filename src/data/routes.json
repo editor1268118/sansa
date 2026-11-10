@@ -1,0 +1,67 @@
+{
+  "/": {
+    "title": "SANSA Hospital Adilabad | Heart, Surgical, Gastro & Skin Care",
+    "description": "Explore gastro, liver, skin, hair, cardiology and surgical care at SANSA Hospital, Adilabad. Meet our specialists and request a consultation."
+  },
+  "/about/hospital": {
+    "title": "About SANSA Hospital | Specialist Healthcare in Adilabad",
+    "description": "Get to know SANSA Hospital in Adilabad, our approach to patient care, our facilities and our commitment to specialist gastro, liver, skin and hair services."
+  },
+  "/about/doctors": {
+    "title": "Our Specialist Doctors | SANSA Hospital, Adilabad",
+    "description": "Meet Dr. V. Sachin Kumar, Dr. Saritha Aadhi, Dr. Mohammed Zakria and Dr. Jakkula Srikanth at SANSA Hospital, Adilabad. View profiles and request a consultation."
+  },
+  "/Gastroenterology": {
+    "title": "Gastroenterology in Adilabad | Endoscopy & Digestive Care | SANSA",
+    "description": "Explore SANSA Hospital’s gastroenterology services in Adilabad, including endoscopy, colonoscopy, ERCP, EVL and luminal stents. Request a specialist consultation."
+  },
+  "/Hepatology": {
+    "title": "Hepatology in Adilabad | Liver Care & FibroScan | SANSA",
+    "description": "Liver care at SANSA Hospital, Adilabad: fatty liver, hepatitis, alcohol-related liver disease and FibroScan information. Consult our hepatology specialist."
+  },
+  "/Cosmetic-Dermatology": {
+    "title": "Dermatology & Cosmetic Skin Care in Adilabad | SANSA Hospital",
+    "description": "Explore dermatology and cosmetic skin care at SANSA Hospital, Adilabad. Laser hair reduction, MNRF, carbon peel and skin treatments with Dr. Saritha Aadhi."
+  },
+  "/Trichology": {
+    "title": "Hair & Scalp Care in Adilabad | Trichology at SANSA Hospital",
+    "description": "Hair and scalp consultations at SANSA Hospital, Adilabad. Read about hair loss, PRP and patterned baldness services and connect with our dermatology team."
+  },
+  "/Cardiology": {
+    "title": "Cardiology in Adilabad | ECG, 2D Echo & Monitoring | SANSA",
+    "description": "Consult Dr. Mohammed Zakria for cardiology services at SANSA Hospital, Adilabad, including ECG, 2D echo and cardiac monitoring. Request a consultation."
+  },
+  "/Surgical-Oncology": {
+    "title": "Surgical Oncology & General Surgery in Adilabad | SANSA",
+    "description": "Consult Dr. Jakkula Srikanth at SANSA Hospital, Adilabad for general surgery, surgical oncology and urological surgeries. Request a specialist consultation."
+  },
+  "/derma-laser": {
+    "title": "Laser & Cosmetic Dermatology in Adilabad | SANSA Derma Laser",
+    "description": "Discover SANSA’s dedicated laser dermatology services in Adilabad. Explore treatments, FAQs, patient experiences and consultation requests with Dr. Saritha Aadhi."
+  },
+  "/gallery": {
+    "title": "Hospital Photo Gallery | Inside SANSA Hospital, Adilabad",
+    "description": "Explore the original SANSA Hospital photo gallery: our people, treatment spaces and facilities in Adilabad. Open photographs for a closer look."
+  },
+  "/Book-An-Appointment": {
+    "title": "Book an Appointment | SANSA Hospital, Adilabad",
+    "description": "Request a specialist appointment at SANSA Hospital in Adilabad. Choose your department, preferred date and time, or contact our team on +91 9182348994."
+  },
+  "/contact": {
+    "title": "Contact & Directions | SANSA Hospital, Dasnapur, Adilabad",
+    "description": "Find SANSA Hospital in Dasnapur, Adilabad. View our address, consultation hours, Google Maps directions, phone +91 9182348994 and enquiry form."
+  },
+  "/thank-you": {
+    "title": "Thank You for Contacting SANSA Hospital",
+    "description": "Contact SANSA Hospital for help with your consultation request. Appointment dates and times are confirmed by our hospital team.",
+    "noindex": true
+  },
+  "/privacy-policy": {
+    "title": "Privacy Policy | SANSA Hospital, Adilabad",
+    "description": "Read SANSA Hospital’s privacy policy about personal information collection, use, protection, retention and contact details for privacy enquiries."
+  },
+  "/page": {
+    "title": "Specialist Consultation & Hospital Services | SANSA Adilabad",
+    "description": "Connect with SANSA Hospital’s specialists in Adilabad. Discover gastro, liver, skin and hair care, meet our doctors and request your consultation."
+  }
+}

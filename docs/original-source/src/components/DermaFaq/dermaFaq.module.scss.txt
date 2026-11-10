@@ -1,0 +1,21 @@
+.faq_container{
+    width: 100%;
+    max-width: 800px;
+    margin:auto;
+    padding: 1em;
+    font-family: "Lexend", sans-serif !important;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.faq_accordian{
+    margin-bottom: 10px;
+}
+.faq_title{
+    color: #3fbbc0;
+    font-weight: bold !important;
+    font-family: "Lexend", sans-serf !important;
+}
+.faq_desc{
+    font-family: "Lexend", sans-serif !important;
+    line-height: 1.5;
+}

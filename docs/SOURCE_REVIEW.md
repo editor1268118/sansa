@@ -1,0 +1,69 @@
+# Original source review
+
+Every original source file is retained verbatim in `docs/original-source/` as a text snapshot. The source was parsed before implementation; all department descriptions and treatment arrays, doctor credentials, FAQs and gallery images were extracted into `src/data/original-content.json`.
+
+- src\App.css
+- src\App.jsx
+- src\components\AppointmentForm.jsx
+- src\components\Button\Button.jsx
+- src\components\Button\button.module.scss
+- src\components\Card\Card.jsx
+- src\components\Card\card.module.scss
+- src\components\ConfiguredRecaptcha.jsx
+- src\components\Departments\Departments.jsx
+- src\components\Departments\Departments.module.scss
+- src\components\DermaFaq\DermaFaq.jsx
+- src\components\DermaFaq\dermaFaq.module.scss
+- src\components\DermaNav\dermaNav.css
+- src\components\DermaNav\DermaNav.jsx
+- src\components\FlipCards\FlipCards.jsx
+- src\components\FlipCards\flipCards.module.scss
+- src\components\Footer\Footer.jsx
+- src\components\Footer\footer.module.scss
+- src\components\NativeForm.jsx
+- src\components\Navbar\Navbar.css
+- src\components\Navbar\Navbar.jsx
+- src\components\Navbar\navbar.module.scss
+- src\components\Separator\Separator.jsx
+- src\components\Separator\separator.module.scss
+- src\components\UI.jsx
+- src\constant\index.js
+- src\data\site.js
+- src\index.css
+- src\Layout.jsx
+- src\main.jsx
+- src\pages\Book Appointment\BookAppointment.jsx
+- src\pages\Book Appointment\bookAppointment.module.scss
+- src\pages\Contact\Contact.jsx
+- src\pages\Contact\contact.module.scss
+- src\pages\DermaLP\DermaLp.jsx
+- src\pages\DermaLP\dermaLp.module.scss
+- src\pages\Dermatology\Dermatology.jsx
+- src\pages\Dermatology\Dermatology.module.scss
+- src\pages\Gallery\Gallery.jsx
+- src\pages\Gallery\gallery.module.scss
+- src\pages\Gastroenterology\Gastroenterology.jsx
+- src\pages\Gastroenterology\Gastroenterology.module.scss
+- src\pages\Hepatology\Hepatology.jsx
+- src\pages\Hepatology\Hepatology.module.scss
+- src\pages\Home\Home.jsx
+- src\pages\Home\home.module.scss
+- src\pages\Our Doctors\OurDoctors.jsx
+- src\pages\Our Doctors\ourDoctors.module.scss
+- src\pages\Page\Page.jsx
+- src\pages\Privacy Policy\PrivacyPolicy.jsx
+- src\pages\Privacy Policy\privacyPolicy.module.scss
+- src\pages\Thank you\ThankYou.jsx
+- src\pages\Thank you\thankYou.module.scss
+- src\pages\The Hospital\TheHospital.jsx
+- src\pages\The Hospital\theHospital.module.scss
+- src\pages\Trichology\Trichology.jsx
+- src\pages\Trichology\Trichology.module.scss
+- src\styles\site.module.scss
+- src\utils\aboutHospital.js
+- src\utils\animateCount.js
+- src\utils\features.js
+- src\utils\hospitalCardContent.js
+- src\utils\metaConfig.js
+- src\utils\scrollToTop.js
+- src\utils\usePageMeta.js

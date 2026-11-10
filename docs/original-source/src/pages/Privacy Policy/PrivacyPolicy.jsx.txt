@@ -1,0 +1,150 @@
+import Separator from "../../components/Separator/Separator";
+import styles from "./privacyPolicy.module.scss";
+import { Link } from "react-router-dom";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+
+export default function PrivacyPolicy() {
+  return (
+    <>
+      <div className={styles.container}>
+        <div className={styles.p_container}>
+          <h1 className={styles.p_header}>Privacy Policy</h1>
+          <Separator />
+          <p className={styles.p_subheader}>
+            At SANSA Gastro, Liver and Skin Hospital Endoscopy & Cosmetology
+            Centre, we take the privacy and security of our patients’ personal
+            information very seriously. This Privacy Policy outlines how we
+            collect, use, and protect the information that we receive from our
+            patients through our website and other digital channels. We are
+            committed to adhering to all applicable laws and regulations
+            governing the privacy of personal information in India and under
+            international laws, including but not limited to the Indian
+            Information Technology (Reasonable Security Practices and Procedures
+            and Sensitive Personal Data or Information) Rules, 2011, the General
+            Data Protection Regulation (GDPR), and any other relevant privacy
+            laws. Our policy is designed to protect your privacy and comply with
+            all relevant international laws, including those that apply to
+            Indian patients, foreign patients, children, and vulnerable
+            patients. By accessing or using our website, you agree to the terms
+            of this Privacy Policy. If you do not agree to the terms of this
+            Privacy Policy, please do not use our website.
+          </p>
+          <h2 className={styles.p_desc_h}>Information Collection and Use</h2>
+          <p className={styles.p_desc}>
+            We collect personal information from our patients and users in a
+            variety of ways, including when they visit our website, book
+            appointments, and fill out forms. The personal information we
+            collect may include name, address, email address, phone number, date
+            of birth, health history, and insurance information.
+          </p>
+          <p className={styles.p_desc}>
+            <b>
+              We use the personal information we collect for the following
+              purposes:
+            </b>
+            <p>
+              1. To provide Gastro & Skin care services to our patients,
+              including diagnosis, treatment, and follow-up care. <br /> 2. To
+              communicate with our patients and users, including sending
+              appointment reminders, responding to inquiries, and providing
+              information about our services. <br /> 3. To process payments for
+              our services, including verifying insurance coverage and billing
+              patients. <br /> 4. To comply with legal and regulatory
+              requirements, including maintaining patient records and reporting
+              to health authorities.
+            </p>
+          </p>
+          <h2 className={styles.p_desc_h}>Sharing of Personal Information</h2>
+          <p className={styles.p_desc}>
+            We do not sell, rent, or trade personal information with third
+            parties for their marketing purposes. However, we may share personal
+            information with the following types of third parties:
+            <p>
+              1. Service providers who perform services on our behalf, such as
+              billing and insurance processing, IT support, and marketing.{" "}
+              <br /> 2. Health authorities or other government agencies as
+              required by law or to protect public health. <br /> 3. Our
+              professional advisors, such as lawyers and accountants. <br /> 4.
+              Other healthcare providers who are involved in the patient’s care,
+              such as referring dentists or medical specialists.
+            </p>
+          </p>
+          <h2 className={styles.p_desc_h}>
+            Protection of Personal Information
+          </h2>
+          <p className={styles.p_desc}>
+            We take appropriate measures to protect your personal information
+            from unauthorized access, use, or disclosure. We limit access to
+            your personal information to those who need to know it for the
+            purposes of providing our services. We also require our service
+            providers to implement appropriate security measures to protect your
+            personal information. However, no system can be completely secure,
+            and we cannot guarantee the security of your personal information.
+            Therefore, we cannot be held responsible for any unauthorized access
+            or use of your personal information.
+          </p>
+          <h2 className={styles.p_desc_h}>Retention of Personal Information</h2>
+          <p className={styles.p_desc}>
+            We will retain your personal information only as long as necessary
+            to fulfill the purposes for which it was collected or as required by
+            law. When your personal information is no longer necessary for these
+            purposes, we will securely delete or anonymize it.
+          </p>
+          <h2 className={styles.p_desc_h}>
+            Cookies and Other Tracking Technologies
+          </h2>
+          <p className={styles.p_desc}>
+            We use cookies and other tracking technologies to collect
+            information about how our patients use our website. This information
+            helps us to improve our website and to provide better services to
+            our patients. We may use third-party service providers to help us
+            analyse our website usage. These service providers may use cookies
+            and other tracking technologies to collect information about our
+            patients’ website usage.
+          </p>
+          <h2 className={styles.p_desc_h}>
+            International Transfer of Personal Information
+          </h2>
+          <p className={styles.p_desc}>
+            If our patients are located outside India, their personal
+            information may be transferred to and processed in India. By
+            providing us with their personal information, our patients consent
+            to this transfer and processing.
+          </p>
+          <h2 className={styles.p_desc_h}>Vulnerable Patients’ Privacy </h2>
+          <p className={styles.p_desc}>
+            We are committed to protecting the privacy of vulnerable patients,
+            including elderly patients, patients with disabilities, and patients
+            with mental health conditions. We may require additional consent or
+            assistance from a legal guardian or caregiver in collecting and
+            using personal information for vulnerable patients.
+          </p>
+          <h2 className={styles.p_desc_h}>Updates to this Privacy Policy </h2>
+          <p className={styles.p_desc}>
+            We may update this Privacy Policy from time to time to reflect
+            changes in our information practices or legal requirements. We will
+            post the updated Privacy Policy on our website as and when deemed
+            necessary.
+          </p>
+          <h2 className={styles.p_desc_h}>Contact Us </h2>
+          <p className={styles.p_desc}>
+            If our patients have any questions or concerns about this Privacy
+            Policy or our information practices, they may contact us at
+            info@sansahospital.com.
+          </p>
+        </div>
+        {/* sticky btn */}
+        <Link className={styles.stickyBtn} to="/#form">
+          <div className={styles.whatsapp_section}>
+            <div className={styles.w_icon_wrapper}>
+              <CalendarMonthIcon style={{ color: "#fff" }} />
+            </div>
+            <div className={styles.w_text_wrapper}>
+              {/* <strong>Book an Appointment</strong> */}
+            </div>
+          </div>
+        </Link>
+      </div>
+    </>
+  );
+}

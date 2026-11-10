@@ -1,0 +1,209 @@
+import React from "react";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import styles from "./gallery.module.scss";
+import PrimaryButton from "../../components/Button/Button";
+import Marquee from "react-fast-marquee";
+import img1 from "../../compressed/IMG_3027.webp";
+import img2 from "../../compressed/IMG_3003.webp";
+import img3 from "../../compressed/IMG_3004.webp";
+import img4 from "../../compressed/IMG_3011.webp";
+import img5 from "../../compressed/IMG_3012.webp";
+import img6 from "../../compressed/IMG_3010.webp";
+import img7 from "../../compressed/IMG_3036.webp";
+import img8 from "../../compressed/IMG_3007.webp";
+import img9 from "../../compressed/IMG_3022.webp";
+import img10 from "../../compressed/IMG_3015.webp";
+import img11 from "../../compressed/IMG_3017.webp";
+import img12 from "../../compressed/IMG_3028.webp";
+import img13 from "../../compressed/IMG_3038.webp";
+import img14 from "../../compressed/IMG_3039.webp";
+import img15 from "../../compressed/IMG_3040.webp";
+import img16 from "../../compressed/IMG_3033.webp";
+import img17 from "../../compressed/IMG_3034.webp";
+import img18 from "../../compressed/IMG_3005.webp";
+import img19 from "../../compressed/IMG_3045.webp";
+import img20 from "../../compressed/IMG_3042.webp";
+import img21 from "../../compressed/IMG_3046.webp";
+import img22 from "../../compressed/IMG_3267.webp";
+import img23 from "../../compressed/IMG_3037.webp";
+import img24 from "../../compressed/IMG_3264.webp";
+import img25 from "../../compressed/IMG_3030.webp";
+import img26 from "../../compressed/IMG_1387.webp";
+import img27 from "../../compressed/IMG_1393.webp";
+import img28 from "../../compressed/IMG_1401.webp";
+import img29 from "../../compressed/IMG_3461.webp";
+import img30 from "../../compressed/IMG_3467.webp";
+import img31 from "../../compressed/IMG_3472.webp";
+import img32 from "../../compressed/IMG_3477.webp";
+import Separator from "../../components/Separator/Separator";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { Link } from "react-router-dom";
+
+function Gallery() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  });
+  useEffect(() => {
+    document.title = "Sansa Hospital Adilabad: Photo Gallery";
+  }, []);
+  return (
+    <div style={{ marginTop: "88px" }}>
+      <h1
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        className={styles.g_heading}
+      >
+        See Inside Sansa: Our Hospital in Images
+      </h1>
+      <Separator />
+      <Marquee pauseOnHover={true} className={styles.marquee_section}>
+        <div className={styles.sliding_container}>
+          <div className={styles.sliding_card} style={{ marginLeft: "1em" }}>
+            <img style={{ width: "100%", height: "100%" }} src={img1} alt="1" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img2} alt="2" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img3} alt="3" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img4} alt="4" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img5} alt="5" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img6} alt="6" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img7} alt="7" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img8} alt="8" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img9} alt="9" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img10} alt="10" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img11} alt="11" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img12} alt="12" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img13} alt="13" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img14} alt="14" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img15} alt="15" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img16} alt="16" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img17} alt="17" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img18} alt="18" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img19} alt="19" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img20} alt="20" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img21} alt="21" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img22} alt="22" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img23} alt="23" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img24} alt="24" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img25} alt="25" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img26} alt="26" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img27} alt="27" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img28} alt="28" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img29} alt="29" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img30} alt="30" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img31} alt="31" />
+          </div>
+          <div className={styles.sliding_card}>
+            <img style={{ width: "100%", height: "100%" }} src={img32} alt="32" />
+          </div>
+        </div>
+      </Marquee>
+
+      <div className={styles.s_section}>
+        <h1 className={styles.g_heading}> Sansa Hospital!</h1>
+        <Separator />
+        <div className={styles.s_container}>
+          <div className={styles.s1_container}>
+            <h2>Sansa Hospital: Providing Quality Care</h2>
+            <p>
+              At Sansa Hospital, we are committed to providing exceptional care
+              to our patients. Our highly skilled team of doctors, nurses, and
+              support staff work together to ensure that every patient receives
+              the best possible care. We offer a wide range of services, from
+              routine check-ups to complex surgeries, and we are dedicated to
+              making sure that our patients feel comfortable and supported
+              throughout their entire hospital experience. Our state-of-the-art
+              facilities and cutting-edge technology ensure that our patients
+              receive the most advanced treatments available.
+            </p>
+          </div>
+          <div className={styles.s2_container}>
+            <h2>Contact Us</h2>
+            <p>
+              If you have any questions or would like to schedule an
+              appointment, please call us at +91 9182348994.
+            </p>
+            <PrimaryButton label="CONTACT" link="/Contact" />
+          </div>
+        </div>
+      </div>
+      {/* sticky btn */}
+      <Link className={styles.stickyBtn} to="/#form">
+        <div className={styles.whatsapp_section}>
+          <div className={styles.w_icon_wrapper}>
+            <CalendarMonthIcon style={{ color: "#fff" }} />
+          </div>
+          <div className={styles.w_text_wrapper}>
+            {/* <strong>Book an Appointment</strong> */}
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+}
+
+export default Gallery;

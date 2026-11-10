@@ -1,0 +1,100 @@
+import React from "react";
+import img3 from "../../compressed/compressed_LHR.jpg";
+import img4 from "../../compressed/compressed_NB08666_1.jpg";
+import img5 from "../../compressed/compressed_NB08740_1.jpg";
+import img6 from "../../compressed/compressed_NB08746.jpg";
+import img7 from "../../compressed/Wart treatment_compressed.jpg";
+import img8 from "../../compressed/tattoo removal_compressed.jpg";
+import img9 from "../../compressed/compressed_HF.jpg";
+import img10 from "../../compressed/compressed_excimer.jpg";
+import img11 from "../../compressed/compressed_NB08671_1.jpg";
+import styles from "./flipCards.module.scss";
+
+const Card = ({ image, title, description }) => {
+  return (
+    <div className={styles.card_container}>
+      <div className={styles.card}>
+        <div className={styles.card_front}>
+          <img src={image} alt={title} className={styles.card_image} />
+          <h3 className={styles.card_title}>{title}</h3>
+        </div>
+        <div className={styles.card_back}>
+          <p className={styles.card_description}>{description}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const FlipCards = () => {
+  const cards = [
+    {
+      image: img3,
+      title: "LASER HAIR REDUCTION",
+      description:
+        "Any wanted hair present on your body will be easily removed by the concentrated beam of light (Laser) in a precise manner. The pigment in the hair absorbs the light from the laser, this allows the skin to decrease the rate of the growth of the hair.",
+    },
+    {
+      image: img4,
+      title: "CARBON PEEL",
+      description:
+        "A layer of liquid carbon will be spread across the face where it absorbs oil, dirt, and dead skin cells. Laser removes the dried carbon layer. This process is done to treat uneven skin tone , oily skin and enlarged pores giving smoothness to your skin.",
+    },
+    {
+      image: img5,
+      title: "MNRF TREATMENT",
+      description:
+        "Scars are a form of tissues formed on the skin due to accidents, burns, acne, and surgery. Microneedling Radiofrequency [MNRF] is a non-surgical process in which radio frequency energy will be delivered into the deeper layers of the skin through small needles thus helping the skin to rejuvenated overall.",
+    },
+    {
+      image: img6,
+      title: "STRECH MARKS",
+      description:
+        "Strech Marks usually appear when our skin shrinks or stretches which leads to the rupture of collagen and elastin. Microneedling Radiofrequency(MNRF) and Laser Skin resurfacing treatments are mostly used to treat stretch marks anywhere on the body.",
+    },
+    {
+      image: img7,
+      title: "SKIN TAG/WART REMOVAL",
+      description:
+        "Small brownish pores formed on the body, mostly on the face and neck are carefully removed without any complications. Cryotherapy or Excision are the commonly used methods to remove the small growths on the body.",
+    },
+    {
+      image: img8,
+      title: "TATTOO REMOVAL",
+      description:
+        "Tattoos might be stylish but as time passes either people will regret it or experience the negative side effects of the ink that is used in the tattoo. Advance Laser Treatment is used to break down pigment colors with high intensity light beam even hard ink tattoos can be removed through advanced treatment.",
+    },
+    {
+      image: img9,
+      title: "HYDRAFACIAL/OXYFACIAL",
+      description:
+        "HydraFacial is a process that exfoliates the deeper skin, reduces acne, mechanically extracts & hydrates the skin, and improves texture of the skin. Oxyfacial gives you fuller and plumper skin with added benefits of improved circulation and youthful glow by applying pressurized oxygen to skin surface.",
+    },
+    {
+      image: img10,
+      title: "TARGETED PHOTOTHERAPHY (EXCIMER)",
+      description:
+        "Also known as Excimer laser therapy. This process uses Ultraviolet B (UVB) light to treat the affected skin areas. Used in the treatment to stop or slow the development of Vitiligo. A highly effective, painless and safe treatment.",
+    },
+    {
+      image: img11,
+      title: "LASER TONING",
+      description:
+        "A revolutionary treatment that helps in treating hyperpigmentation and age Spots. Laser Toning helps increase in Collagen production which in turn provides support and gives strength to skin. Restores skin natural ability to heal and minimizes pores present on the skin.",
+    },
+  ];
+  return (
+    <div className={styles.flip_card_container}>
+      {cards.map((dermaCard, index) => (
+        <Card
+          key={index}
+          image={dermaCard.image}
+          title={dermaCard.title}
+          description={dermaCard.description}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default FlipCards;
