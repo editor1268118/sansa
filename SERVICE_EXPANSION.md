@@ -15,7 +15,7 @@ Implemented from the hospital's request and supplied portraits on 10 November 20
 The user supplied the following details in the follow-up request. They are now used by homepage doctor cards, the doctor directory, department specialist sections and FAQs, portrait alt text and named Physician metadata:
 
 - Dr. Mohammed Zakria — MBBS, MD, DM(Cardiology).
-- Dr. Jakkula Srikanth — MBBS (Osm), MS(General Surgery), Surgical Oncology, FMAS, FIAFES.
+- Dr. Jakkula Srikanth — MBBS (Osm), MS(General Surgery), DNB Surgical Oncology, FMAS, FIAFES.
 
 The shared profiles remain in `src/data/additional-services.js`. No experience figures or additional credentials were added.
 

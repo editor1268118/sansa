@@ -15,7 +15,7 @@ export const additionalDoctors = [
   },
   {
     name: "Dr. Jakkula Srikanth",
-    qualifications: "MBBS (Osm), MS(General Surgery), Surgical Oncology, FMAS, FIAFES",
+    qualifications: "MBBS (Osm), MS(General Surgery), DNB Surgical Oncology, FMAS, FIAFES",
     specialty: "Surgical Oncology & General Surgery",
     image: "/media/surgical-oncologist.jpeg",
     alt: "Dr. Jakkula Srikanth, Surgical Oncologist at SANSA Hospital",

@@ -40,7 +40,7 @@ const schema = await c.evaluate('JSON.parse(document.getElementById("sansa-struc
 const physicians = schema["@graph"].filter(node=>node["@type"]==="Physician");
 assert.equal(physicians.length, 4);
 assert.ok(physicians.some(doctor=>doctor.name === "Dr. Mohammed Zakria" && doctor.description === "MBBS, MD, DM(Cardiology)"));
-assert.ok(physicians.some(doctor=>doctor.name === "Dr. Jakkula Srikanth" && doctor.description === "MBBS (Osm), MS(General Surgery), Surgical Oncology, FMAS, FIAFES"));
+assert.ok(physicians.some(doctor=>doctor.name === "Dr. Jakkula Srikanth" && doctor.description === "MBBS (Osm), MS(General Surgery), DNB Surgical Oncology, FMAS, FIAFES"));
 await navigate(c, origin + "/contact");
 assert.ok(await c.evaluate('[...document.querySelectorAll("select[name=department] option")].some(el=>el.value==="Cardiology")'));
 assert.ok(await c.evaluate('[...document.querySelectorAll("select[name=department] option")].some(el=>el.value==="Surgical Oncology")'));
