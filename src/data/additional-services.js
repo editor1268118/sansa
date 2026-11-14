@@ -108,8 +108,3 @@ export const additionalSpecialties = [
     ],
   },
 ];
-
-export const additionalAppointmentDepartments = [
-  "Cardiology",
-  "Surgical Oncology",
-];

@@ -7,7 +7,7 @@ Implemented from the hospital's request and supplied portraits on 10 November 20
 - Both pages use the same department hero, service cards, specialist section, FAQs, cross-links and appointment CTA as the existing departments.
 - Both supplied portraits are copied unchanged into `public/media/`. Their intrinsic dimensions are recorded in `src/data/media.json`; the existing doctor-image frames are retained with top-aligned cropping. Browser checks confirm identical frame width/height to existing doctors at 1440px and 390px.
 - Homepage specialty cards, homepage doctor cards, doctor directory, desktop/mobile speciality menus, footer, department sidebars and contact specialty links use the shared data and include both additions.
-- Appointment and contact FormSubmit menus include Cardiology and Surgical Oncology. New doctor appointment links preselect the matching department. The original API endpoint/JSON contract is unchanged; the API form links these departments to the native appointment form rather than sending unverified new enum values to the production API.
+- Consultation, appointment and contact menus share all seven departments: Gastroenterology, Hepatology, Dermatology, Trichology, Cardiology, Surgical Oncology and Derma Laser. Doctor appointment links preselect the matching department. Consultation requests retain their API endpoint and JSON field names, including the original Gastroenterology/Dermatology values; the other departments use lowercase hyphenated values. Acceptance and email delivery by the external production backend remain unverified; browser checks intercept submissions.
 - Unique metadata, canonical URLs, medical-service structured data and sitemap entries are generated for both pages.
 
 ## Confirmed profile details
@@ -23,6 +23,7 @@ The shared profiles remain in `src/data/additional-services.js`. No experience f
 
 ### 14 November interface refinements
 
+- All department menus now derive from the website's shared specialty list, including Derma Laser. The obsolete separate booking hint for Cardiology/Surgical Oncology is removed. Browser checks cover all seven consultation payloads and every appointment/contact preselection.
 - Homepage Cardiology and Surgical Oncology speciality cards now use original SANSA patient-monitor and operation-theatre photographs. Department heroes and doctor profiles retain their supplied portraits.
 - Email is optional in both native appointment/contact forms and all API consultation forms. A provided email must be syntactically valid; the former Gmail-only restriction is removed. Field names and request destinations remain unchanged. Delivery with blank email still requires verification against the external production services; browser submission tests use intercepted responses.
 - Dr. Jakkula Srikanth's portrait uses `object-fit: contain` on mobile, keeping the full image visible inside the existing frame.

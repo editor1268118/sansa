@@ -1,18 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Link, useSearchParams } from "react-router-dom";
-import { additionalAppointmentDepartments } from "../data/additional-services";
+import { appointmentDepartments } from "../data/site";
 import { FiArrowUpRight } from "react-icons/fi";
 import s from "../styles/site.module.scss";
 
 export default function NativeForm({ contact = false }) {
   const [searchParams] = useSearchParams();
   const requestedDepartment = searchParams.get("department");
-  const selectedDepartment = [
-    "Gastroenterology",
-    "Dermatology",
-    ...additionalAppointmentDepartments,
-  ].includes(requestedDepartment)
+  const selectedDepartment = appointmentDepartments.some(
+    ({ name }) => name === requestedDepartment,
+  )
     ? requestedDepartment
     : "";
   const [loading, setLoading] = useState(false);
@@ -110,10 +108,8 @@ export default function NativeForm({ contact = false }) {
             <option value="" disabled>
               Select department
             </option>
-            <option>Gastroenterology</option>
-            <option>Dermatology</option>
-            {additionalAppointmentDepartments.map((department) => (
-              <option key={department}>{department}</option>
+            {appointmentDepartments.map(({ name }) => (
+              <option key={name}>{name}</option>
             ))}
           </select>
         </label>

@@ -5,6 +5,8 @@
     "A supplied email must be valid, but it is not required or restricted to Gmail.",
     "API failure displays an error and does not show success.",
     "API exact contract, duplicate prevention and acknowledged success redirect pass.",
+    "All seven homepage departments selectable and preserved in intercepted API submissions.",
+    "Appointment and contact forms include all seven departments and preselect each URL parameter.",
     "Laser name validation and original empty-department payload preserved.",
     "Legacy /page accepts non-Gmail email and keeps API integration.",
     "Native appointment exact field names, destination and thank-you redirect preserved.",
@@ -22,6 +24,48 @@
       "method": "POST",
       "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"gastroenterology\",\"recaptchaToken\":\"qa-captcha-token\"}",
       "mode": "slow"
+    },
+    {
+      "url": "https://api.sansahospital.com/api/send-email",
+      "method": "POST",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"gastroenterology\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "mode": "success"
+    },
+    {
+      "url": "https://api.sansahospital.com/api/send-email",
+      "method": "POST",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"hepatology\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "mode": "success"
+    },
+    {
+      "url": "https://api.sansahospital.com/api/send-email",
+      "method": "POST",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"dermatology\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "mode": "success"
+    },
+    {
+      "url": "https://api.sansahospital.com/api/send-email",
+      "method": "POST",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"trichology\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "mode": "success"
+    },
+    {
+      "url": "https://api.sansahospital.com/api/send-email",
+      "method": "POST",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"cardiology\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "mode": "success"
+    },
+    {
+      "url": "https://api.sansahospital.com/api/send-email",
+      "method": "POST",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"surgical-oncology\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "mode": "success"
+    },
+    {
+      "url": "https://api.sansahospital.com/api/send-email",
+      "method": "POST",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"derma-laser\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "mode": "success"
     },
     {
       "url": "https://api.sansahospital.com/api/send-email",

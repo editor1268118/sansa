@@ -4,6 +4,15 @@ import { connect, delay, navigate } from "./cdp.mjs";
 const c = await connect();
 const requests = [];
 const results = [];
+const departments = [
+  ["Gastroenterology", "gastroenterology"],
+  ["Hepatology", "hepatology"],
+  ["Dermatology", "dermatology"],
+  ["Trichology", "trichology"],
+  ["Cardiology", "cardiology"],
+  ["Surgical Oncology", "surgical-oncology"],
+  ["Derma Laser", "derma-laser"],
+];
 let mode = "success";
 const interceptionErrors = [];
 await c.send("Network.setBlockedURLs", {
@@ -88,6 +97,9 @@ await c.send("Emulation.setDeviceMetricsOverride", {
 });
 await navigate(c, "http://127.0.0.1:5174/");
 await waitFor("!!window.__qaCaptcha");
+assert.deepEqual(await c.evaluate(
+  'Array.from(document.querySelector("select[name=department]").options).slice(1).map(o=>[o.text,o.value])',
+), departments);
 await fill({
   name: "QA Test",
   mobile: "1234567890",
@@ -149,6 +161,30 @@ assert.match(
 results.push(
   "API exact contract, duplicate prevention and acknowledged success redirect pass.",
 );
+mode = "success";
+for (const [, department] of departments) {
+  await navigate(c, "http://127.0.0.1:5174/");
+  await waitFor("!!window.__qaCaptcha");
+  await fill({ name: "QA Test", mobile: "1234567890", email: "", department });
+  await submit();
+  await waitFor('location.pathname==="/thank-you"');
+  assert.equal(JSON.parse(requests.at(-1).body).department, department);
+  await waitFor('document.querySelector("main h1")?.textContent.includes("Your request has been sent")');
+}
+results.push("All seven homepage departments selectable and preserved in intercepted API submissions.");
+for (const path of ["/Book-An-Appointment", "/contact"]) {
+  for (const [department] of departments) {
+    await navigate(c, `http://127.0.0.1:5174${path}?department=${encodeURIComponent(department)}`);
+    await waitFor('!!document.querySelector("form select[name=Department],form select[name=department]")');
+    assert.deepEqual(await c.evaluate(
+      'Array.from(document.querySelector("form select[name=Department],form select[name=department]").options).slice(1).map(o=>o.text)',
+    ), departments.map(([name]) => name));
+    assert.equal(await c.evaluate(
+      'document.querySelector("form select[name=Department],form select[name=department]").value',
+    ), department);
+  }
+}
+results.push("Appointment and contact forms include all seven departments and preselect each URL parameter.");
 await navigate(c, "http://127.0.0.1:5174/derma-laser");
 await waitFor("!!window.__qaCaptcha");
 await fill({ name: "QA123", mobile: "1234567890", email: "" });

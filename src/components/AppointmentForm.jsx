@@ -5,7 +5,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import { baseServerUrl } from "../constant";
-import { hospital } from "../data/site";
+import { appointmentDepartments, hospital } from "../data/site";
 import s from "../styles/site.module.scss";
 
 export default function AppointmentForm({ variant = "home" }) {
@@ -143,8 +143,11 @@ export default function AppointmentForm({ variant = "home" }) {
               <option value="" disabled>
                 Select department
               </option>
-              <option value="gastroenterology">Gastroenterology</option>
-              <option value="dermatology">Dermatology</option>
+              {appointmentDepartments.map(({ name, value }) => (
+                <option key={value} value={value}>
+                  {name}
+                </option>
+              ))}
             </select>
             {errors.department && (
               <span id={`${id}-department-error`} className={s.fieldError}>
@@ -196,25 +199,6 @@ export default function AppointmentForm({ variant = "home" }) {
         A request does not confirm an appointment. Please wait for our team to
         confirm your visit.
       </p>
-      {variant !== "laser" && (
-        <p className={s.formHint}>
-          For{" "}
-          <Link
-            className={s.bookingLink}
-            to="/Book-An-Appointment?department=Cardiology"
-          >
-            Cardiology
-          </Link>{" "}
-          or{" "}
-          <Link
-            className={s.bookingLink}
-            to="/Book-An-Appointment?department=Surgical%20Oncology"
-          >
-            Surgical Oncology
-          </Link>
-          , use our appointment request form.
-        </p>
-      )}
     </form>
   );
 }

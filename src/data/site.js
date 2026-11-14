@@ -86,6 +86,10 @@ export const laser = {
   path: "/derma-laser",
   label: "Laser & cosmetic dermatology",
 };
+export const appointmentDepartments = [...specialties, laser].map(({ name }) => ({
+  name,
+  value: name.toLowerCase().replace(/\s+/g, "-"),
+}));
 export const doctors = original.doctors.doctors
   .map((d, i) => ({
     ...d,
