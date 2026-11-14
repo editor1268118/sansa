@@ -2,7 +2,7 @@
   "productionSubmissions": 0,
   "captcha": "intercepted test stub; not live verification",
   "results": [
-    "Home Gmail validation blocks invalid payload.",
+    "A supplied email must be valid, but it is not required or restricted to Gmail.",
     "API failure displays an error and does not show success.",
     "API exact contract, duplicate prevention and acknowledged success redirect pass.",
     "Laser name validation and original empty-department payload preserved.",
@@ -14,19 +14,19 @@
     {
       "url": "https://api.sansahospital.com/api/send-email",
       "method": "POST",
-      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"qa@gmail.com\",\"department\":\"gastroenterology\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"gastroenterology\",\"recaptchaToken\":\"qa-captcha-token\"}",
       "mode": "failure"
     },
     {
       "url": "https://api.sansahospital.com/api/send-email",
       "method": "POST",
-      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"qa@gmail.com\",\"department\":\"gastroenterology\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"gastroenterology\",\"recaptchaToken\":\"qa-captcha-token\"}",
       "mode": "slow"
     },
     {
       "url": "https://api.sansahospital.com/api/send-email",
       "method": "POST",
-      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"qa@example.com\",\"department\":\"\",\"recaptchaToken\":\"qa-captcha-token\"}",
+      "body": "{\"name\":\"QA Test\",\"mobile\":\"1234567890\",\"email\":\"\",\"department\":\"\",\"recaptchaToken\":\"qa-captcha-token\"}",
       "mode": "success"
     },
     {
@@ -38,18 +38,13 @@
     {
       "url": "https://formsubmit.co/info@sansahospital.com",
       "method": "POST",
-      "body": "First+Name=QA&Last+Name=Test&Mobile=1234567890&Email=qa%40example.com&Gender=Others&Department=Dermatology&Preferred+Date=2027-12-01&Preferred+Time=Morning&_captcha=false&_template=table&_next=http%3A%2F%2F127.0.0.1%3A5174%2Fthank-you",
-      "mode": "success"
-    },
-    {
-      "url": "https://formsubmit.co/favicon.ico",
-      "method": "GET",
+      "body": "First+Name=QA&Last+Name=Test&Mobile=1234567890&Email=&Gender=Others&Department=Dermatology&Preferred+Date=2027-12-01&Preferred+Time=Morning&_captcha=false&_template=table&_next=http%3A%2F%2F127.0.0.1%3A5174%2Fthank-you",
       "mode": "success"
     },
     {
       "url": "https://formsubmit.co/info@sansahospital.com",
       "method": "POST",
-      "body": "name=QA+Test&email=qa%40example.com&department=Gastroenterology&message=Intercepted+test+only&_captcha=false&_template=table&_next=http%3A%2F%2F127.0.0.1%3A5174%2Fthank-you",
+      "body": "name=QA+Test&email=&department=Gastroenterology&message=Intercepted+test+only&_captcha=false&_template=table&_next=http%3A%2F%2F127.0.0.1%3A5174%2Fthank-you",
       "mode": "success"
     }
   ]

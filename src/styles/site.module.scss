@@ -2077,3 +2077,24 @@
 .doctorFull .doctorPortrait img {
   object-position: center top;
 }
+
+@media (max-width: 767px) {
+  .doctorCard .fitDoctorPortrait img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+  }
+
+  .mobileCall {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .mobileCall svg {
+    width: 22px;
+    height: 22px;
+  }
+}

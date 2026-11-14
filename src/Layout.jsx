@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { FiPhone } from "react-icons/fi";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import usePageMeta from "./utils/usePageMeta";
@@ -29,7 +30,14 @@ export default function Layout() {
       </main>
       <Footer />
       <div className={s.mobileAction}>
-        <a href="tel:+919182348994">Call SANSA</a>
+        <a
+          href="tel:+919182348994"
+          className={s.mobileCall}
+          aria-label="Call SANSA Hospital"
+          title="Call SANSA Hospital"
+        >
+          <FiPhone aria-hidden="true" />
+        </a>
         <Button>Book appointment</Button>
       </div>
     </>

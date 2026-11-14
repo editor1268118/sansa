@@ -15,7 +15,9 @@ export const additionalDoctors = [
   },
   {
     name: "Dr. Jakkula Srikanth",
-    qualifications: "MBBS (Osm), MS(General Surgery), DNB Surgical Oncology, FMAS, FIAFES",
+    fitOnMobile: true,
+    qualifications:
+      "MBBS (Osm), MS(General Surgery), DNB Surgical Oncology, FMAS, FIAFES",
     specialty: "Surgical Oncology & General Surgery",
     image: "/media/surgical-oncologist.jpeg",
     alt: "Dr. Jakkula Srikanth, Surgical Oncologist at SANSA Hospital",
@@ -37,6 +39,8 @@ export const additionalSpecialties = [
       "Cardiology services including ECG, 2D echo and cardiac monitoring.",
     headline: "Specialist attention for your heart health.",
     image: additionalDoctors[0].image,
+    cardImage: "/src/compressed/compressed_sansa7.jpg",
+    cardImageAlt: "Patient monitoring equipment at SANSA Hospital",
     imageAlt: additionalDoctors[0].alt,
     portrait: true,
     doctor: 2,
@@ -76,6 +80,8 @@ export const additionalSpecialties = [
       "Consultations for general surgery, surgical oncology and urological surgeries.",
     headline: "Surgical care with a personal approach.",
     image: additionalDoctors[1].image,
+    cardImage: "/src/compressed/IMG_3045.webp",
+    cardImageAlt: "Operation theatre at SANSA Hospital",
     imageAlt: additionalDoctors[1].alt,
     portrait: true,
     doctor: 3,

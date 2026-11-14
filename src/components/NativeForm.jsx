@@ -29,8 +29,11 @@ export default function NativeForm({ contact = false }) {
   const minDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
   const field = (label, name, type = "text", props = {}) => (
     <label className={s.field}>
-      <span>{label} *</span>
-      <input name={name} type={type} required {...props} />
+      <span>
+        {label}
+        {type === "email" ? " (optional)" : " *"}
+      </span>
+      <input name={name} type={type} required={type !== "email"} {...props} />
     </label>
   );
   return (

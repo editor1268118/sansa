@@ -147,9 +147,15 @@ export function SpecialtyCard({ specialty, index }) {
     <Link to={specialty.path} className={s.specialtyCard}>
       <div className={s.cardPhoto}>
         <Photo
-          src={specialty.image}
-          alt={specialty.imageAlt || `${specialty.name} care at SANSA`}
-          className={specialty.portrait ? s.portraitPhoto : ""}
+          src={specialty.cardImage || specialty.image}
+          alt={
+            specialty.cardImageAlt ||
+            specialty.imageAlt ||
+            `${specialty.name} care at SANSA`
+          }
+          className={
+            !specialty.cardImage && specialty.portrait ? s.portraitPhoto : ""
+          }
         />
         <span className={s.cardNumber}>0{index + 1}</span>
       </div>
@@ -193,7 +199,7 @@ export function DoctorCard({ doctor, full = false }) {
   return (
     <article className={`${s.doctorCard} ${full ? s.doctorFull : ""}`}>
       <div
-        className={`${s.doctorPhoto} ${doctor.portrait ? s.doctorPortrait : ""}`}
+        className={`${s.doctorPhoto} ${doctor.portrait ? s.doctorPortrait : ""} ${doctor.fitOnMobile ? s.fitDoctorPortrait : ""}`}
       >
         <Photo src={doctor.image} alt={doctor.alt} />
       </div>

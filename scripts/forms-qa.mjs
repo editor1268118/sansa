@@ -32,7 +32,7 @@ c.on(async (m) => {
       const callback = new URL(request.url).searchParams.get("onload");
       body = `window.grecaptcha={render:(node,options)=>{window.__qaCaptcha=options;node.textContent='Test-only security check';setTimeout(()=>options.callback('qa-captcha-token'),0);return 0;},reset:()=>{},getResponse:()=>'qa-captcha-token'};setTimeout(()=>window[${JSON.stringify(callback)}]?.(),0);`;
     } else if (request.method !== "OPTIONS") {
-      requests.push({
+      if (request.method === "POST") requests.push({
         url: request.url,
         method: request.method,
         body: request.postData,
@@ -91,18 +91,28 @@ await waitFor("!!window.__qaCaptcha");
 await fill({
   name: "QA Test",
   mobile: "1234567890",
-  email: "qa@example.com",
+  email: "invalid-email",
   department: "gastroenterology",
 });
 await submit();
 await delay(100);
-assert.match(
-  await c.evaluate("document.body.innerText"),
-  /requires a Gmail address/,
+assert.equal(
+  await c.evaluate(
+    'document.querySelector("input[name=email]").checkValidity()',
+  ),
+  false,
 );
 assert.equal(requests.length, 0);
-results.push("Home Gmail validation blocks invalid payload.");
-await fill({ email: "qa@gmail.com" });
+results.push(
+  "A supplied email must be valid, but it is not required or restricted to Gmail.",
+);
+await fill({ email: "" });
+assert.equal(
+  await c.evaluate(
+    'document.querySelector("input[name=email]").checkValidity()',
+  ),
+  true,
+);
 mode = "failure";
 await submit();
 await waitFor('!!document.querySelector("form [role=alert]")');
@@ -130,6 +140,8 @@ assert.deepEqual(Object.keys(payload).sort(), [
   "recaptchaToken",
 ]);
 assert.equal(payload.department, "gastroenterology");
+assert.equal(payload.email, "");
+await waitFor('document.querySelector("main h1")?.textContent.includes("Your request has been sent")');
 assert.match(
   await c.evaluate("document.body.innerText"),
   /Your request has been sent/,
@@ -139,7 +151,7 @@ results.push(
 );
 await navigate(c, "http://127.0.0.1:5174/derma-laser");
 await waitFor("!!window.__qaCaptcha");
-await fill({ name: "QA123", mobile: "1234567890", email: "qa@example.com" });
+await fill({ name: "QA123", mobile: "1234567890", email: "" });
 await submit();
 await delay(50);
 assert.match(await c.evaluate("document.body.innerText"), /letters and spaces/);
@@ -148,6 +160,7 @@ mode = "success";
 await submit();
 await waitFor('location.pathname==="/thank-you"');
 assert.equal(JSON.parse(requests.at(-1).body).department, "");
+assert.equal(JSON.parse(requests.at(-1).body).email, "");
 results.push(
   "Laser name validation and original empty-department payload preserved.",
 );
@@ -167,7 +180,7 @@ await fill({
   "First Name": "QA",
   "Last Name": "Test",
   Mobile: "1234567890",
-  Email: "qa@example.com",
+  Email: "",
   Gender: "Others",
   Department: "Dermatology",
   "Preferred Date": "2027-12-01",
@@ -193,19 +206,21 @@ assert.deepEqual(
   ].sort(),
 );
 assert.equal(native.get("_next"), "http://127.0.0.1:5174/thank-you");
+assert.equal(native.get("Email"), "");
 results.push(
   "Native appointment exact field names, destination and thank-you redirect preserved.",
 );
 await navigate(c, "http://127.0.0.1:5174/contact");
 await fill({
   name: "QA Test",
-  email: "qa@example.com",
+  email: "",
   department: "Gastroenterology",
   message: "Intercepted test only",
 });
 await submit();
 await waitFor('location.hostname==="formsubmit.co"');
 const enquiry = new URLSearchParams(requests.at(-1).body);
+assert.equal(enquiry.get("email"), "");
 assert.deepEqual(
   [...enquiry.keys()].sort(),
   [

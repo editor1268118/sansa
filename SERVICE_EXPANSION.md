@@ -21,6 +21,13 @@ The shared profiles remain in `src/data/additional-services.js`. No experience f
 
 ## Validation
 
+### 14 November interface refinements
+
+- Homepage Cardiology and Surgical Oncology speciality cards now use original SANSA patient-monitor and operation-theatre photographs. Department heroes and doctor profiles retain their supplied portraits.
+- Email is optional in both native appointment/contact forms and all API consultation forms. A provided email must be syntactically valid; the former Gmail-only restriction is removed. Field names and request destinations remain unchanged. Delivery with blank email still requires verification against the external production services; browser submission tests use intercepted responses.
+- Dr. Jakkula Srikanth's portrait uses `object-fit: contain` on mobile, keeping the full image visible inside the existing frame.
+- The mobile sticky call action uses an accessible phone icon; the appointment action is unchanged.
+
 - Lint and production build passed.
 - Targeted service/doctor/appointment checks: `docs/qa/service-expansion-results.json`.
 - All sixteen routes passed all ten requested viewport sizes (160 combinations), with no overflow, missing images, local HTTP errors or runtime exceptions. Gallery keyboard controls and mobile navigation also passed; see `docs/qa/responsive-results.json`.

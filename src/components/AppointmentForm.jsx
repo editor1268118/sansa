@@ -43,9 +43,6 @@ export default function AppointmentForm({ variant = "home" }) {
         "Please use letters and spaces, as required by this enquiry form.";
     if (!/^\d{10}$/.test(data.mobile))
       invalid.mobile = "Enter a 10-digit mobile number.";
-    if (variant === "home" && !data.email.endsWith("@gmail.com"))
-      invalid.email =
-        "This form currently requires a Gmail address. You can also book by phone.";
     if (variant !== "laser" && !data.department)
       invalid.department = "Please select a department.";
     setErrors(invalid);
@@ -86,7 +83,10 @@ export default function AppointmentForm({ variant = "home" }) {
   };
   const field = (name, label, type = "text", placeholder = "") => (
     <label className={s.field}>
-      <span>{label} *</span>
+      <span>
+        {label}
+        {type === "email" ? " (optional)" : " *"}
+      </span>
       <input
         id={`${id}-${name}`}
         name={name}
@@ -96,7 +96,7 @@ export default function AppointmentForm({ variant = "home" }) {
         }
         value={data[name]}
         onChange={change}
-        required
+        required={type !== "email"}
         placeholder={placeholder}
         inputMode={name === "mobile" ? "numeric" : undefined}
         maxLength={name === "mobile" ? 10 : undefined}
@@ -126,12 +126,7 @@ export default function AppointmentForm({ variant = "home" }) {
       <div className={s.formGrid}>
         {field("name", "Full name", "text", "Your full name")}
         {field("mobile", "Mobile number", "tel", "10-digit mobile number")}
-        {field(
-          "email",
-          variant === "home" ? "Gmail address" : "Email address",
-          "email",
-          "you@example.com",
-        )}
+        {field("email", "Email address", "email", "you@example.com")}
         {variant !== "laser" && (
           <label className={s.field}>
             <span>Department *</span>

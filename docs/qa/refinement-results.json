@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Both specialty cards use original service photographs.",
+    "360px: full portrait fit, accessible phone icon and no overflow.",
+    "390px: full portrait fit, accessible phone icon and no overflow.",
+    "430px: full portrait fit, accessible phone icon and no overflow.",
+    "/Book-An-Appointment: email input is optional.",
+    "/contact: email input is optional."
+  ],
+  "productionSubmissions": 0
+}
